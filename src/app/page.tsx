@@ -9,6 +9,14 @@ import { Calculator } from "@/components/Calculator";
 import { DigitalBanking } from "@/components/DigitalBanking";
 import { Onboarding } from "@/components/Onboarding";
 import { FAQ } from "@/components/FAQ";
+import { TrustStrip } from "@/components/TrustStrip";
+import { Pension } from "@/components/Pension";
+import { RecurringDeposit } from "@/components/RecurringDeposit";
+import { WhySIA } from "@/components/WhySIA";
+import { SiaMitra } from "@/components/SiaMitra";
+import { BranchLocator } from "@/components/BranchLocator";
+import { Testimonials } from "@/components/Testimonials";
+import { FinalCTA } from "@/components/FinalCTA";
 
 export default function Home() {
   return (
@@ -16,15 +24,25 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <TrustStrip />
         <QuickAccess />
         
         <SavingsAccount />
         <CurrentAccount />
         <FixedDeposit />
+        <Pension />
+        <RecurringDeposit />
         <Calculator />
+        <WhySIA />
         <DigitalBanking />
         <Onboarding />
+        <div className="pt-10 pb-20">
+          <SiaMitra />
+        </div>
+        <Testimonials />
+        <BranchLocator />
         <FAQ />
+        <FinalCTA />
       </main>
       <Footer />
     </>

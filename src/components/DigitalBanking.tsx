@@ -1,37 +1,83 @@
-import { Smartphone, CreditCard, ShieldCheck, Zap, Coins, FileText } from "lucide-react"
+"use client"
+
+import * as React from "react"
+import { Smartphone, CreditCard, ShieldCheck, Zap, Coins, FileText, Send, Lock } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function DigitalBanking() {
-  const features = [
-    { icon: Zap, title: "UPI Payments", desc: "Instant real-time transfers" },
-    { icon: CreditCard, title: "Debit Cards", desc: "Contactless tap & pay" },
-    { icon: Smartphone, title: "Mobile Banking", desc: "Your bank in your pocket" },
-    { icon: ShieldCheck, title: "NEFT / RTGS", desc: "Secure large fund transfers" },
-    { icon: FileText, title: "e-Statements", desc: "Digital passbook & tracking" },
-    { icon: Coins, title: "Secure Coin Rewards", desc: "Earn loyalty on every swipe" },
+  const floatingCards = [
+    { icon: Send, title: "Send Money Abroad", delay: 0.1, position: "top-[10%] left-[2%] md:-left-[15%]" },
+    { icon: Zap, title: "Bill Payments", delay: 0.3, position: "top-[40%] -left-[5%] md:-left-[25%]" },
+    { icon: Coins, title: "Manage Investments", delay: 0.5, position: "bottom-[15%] left-[2%] md:-left-[10%]" },
+    
+    { icon: CreditCard, title: "Manage Your Cards", delay: 0.2, position: "top-[15%] right-[2%] md:-right-[15%]" },
+    { icon: FileText, title: "Personal Loans", delay: 0.4, position: "top-[50%] -right-[5%] md:-right-[25%]" },
+    { icon: Lock, title: "Fixed Deposits", delay: 0.6, position: "bottom-[20%] right-[2%] md:-right-[10%]" },
   ]
 
   return (
-    <section className="py-20 bg-background" id="digital">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Digital Banking at your fingertips</h2>
-          <p className="text-muted-foreground">
-            Experience seamless, paperless, and secure banking wherever you go. Manage your funds, pay bills, and track rewards instantly.
+    <section className="py-24 bg-background overflow-hidden relative" id="digital">
+      
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0F172A] dark:text-white">Banking anytime, anywhere</h2>
+          <p className="text-muted-foreground text-lg">
+            Experience seamless, paperless, and secure banking wherever you go. Over 250+ services available on the SIA Mobile App.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, idx) => (
-            <div key={idx} className="flex items-start gap-4 p-6 bg-card border border-border rounded-xl hover:shadow-md transition-all hover:-translate-y-1">
-              <div className="bg-primary/10 p-3 rounded-xl text-primary shrink-0">
-                <feature.icon className="h-6 w-6" />
+        {/* Axis Bank Style Marketing Image with White Glass Cards */}
+        <div className="relative max-w-3xl mx-auto flex justify-center items-center mt-10">
+          
+          {/* Central Marketing Image inside a rounded beautiful frame */}
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="relative z-20 w-[300px] h-[550px] md:w-[350px] md:h-[650px] rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.15)] bg-white overflow-hidden border-[10px] border-white"
+          >
+             <div className="absolute inset-0 bg-[url('/happy_fintech_user.jpg')] bg-cover bg-center" />
+             <div className="absolute bottom-10 left-0 w-full text-center text-white px-6">
+                <ShieldCheck className="h-10 w-10 mx-auto mb-2 drop-shadow-md" />
+                <h3 className="text-3xl font-black italic drop-shadow-md">open</h3>
+                <p className="text-[10px] font-bold tracking-widest uppercase mt-1 drop-shadow-md">SIA Bank App</p>
+             </div>
+          </motion.div>
+
+          {/* Floating UI Cards */}
+          {floatingCards.map((card, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: card.delay, duration: 0.5 }}
+              animate={{ 
+                y: [0, -10, 0],
+              }}
+              // @ts-ignore
+              transition={{
+                y: {
+                  duration: 3 + idx,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }
+              }}
+              className={`absolute ${card.position} z-30 hidden md:flex`}
+            >
+              <div className={`glass-card p-3 md:p-4 rounded-2xl flex items-center gap-3 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,180,216,0.15)] transition-all cursor-pointer w-[190px] md:w-[230px] group`}>
+                 <div className="bg-primary/10 text-primary dark:bg-primary/20 p-2.5 rounded-full shrink-0 group-hover:bg-primary group-hover:text-white dark:group-hover:text-[#0B1120] transition-colors">
+                    <card.icon className="h-4 w-4 md:h-5 md:w-5" />
+                 </div>
+                 <span className="font-bold text-xs md:text-sm leading-tight">{card.title}</span>
+                 <div className="ml-auto opacity-30 group-hover:opacity-100 group-hover:text-primary transition-colors">
+                   <svg width="6" height="10" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L7 7L1 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                 </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.desc}</p>
-              </div>
-            </div>
+            </motion.div>
           ))}
+          
         </div>
       </div>
     </section>

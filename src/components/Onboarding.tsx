@@ -1,12 +1,12 @@
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, FileText, Fingerprint, Wallet, Rocket } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/Card"
 
 export function Onboarding() {
   const steps = [
-    { num: "01", title: "Choose your plan", desc: "Select from our Savings, Current, or Deposit products tailored for you." },
-    { num: "02", title: "Submit KYC", desc: "Provide basic documents like Aadhaar, PAN, and address proof online." },
-    { num: "03", title: "Fund account", desc: "Transfer from any existing bank account or deposit cash at our branch." },
-    { num: "04", title: "Start earning", desc: "Instantly activate your digital banking, debit card, and start earning interest." },
+    { num: "01", icon: FileText, title: "Choose your plan", desc: "Select from our Savings, Current, or Deposit products tailored for you." },
+    { num: "02", icon: Fingerprint, title: "Submit KYC", desc: "Provide basic documents like Aadhaar, PAN, and address proof online." },
+    { num: "03", icon: Wallet, title: "Fund account", desc: "Transfer from any existing bank account or deposit cash at our branch." },
+    { num: "04", icon: Rocket, title: "Start earning", desc: "Instantly activate your digital banking, debit card, and start earning interest." },
   ]
 
   return (
@@ -43,15 +43,14 @@ export function Onboarding() {
 
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
-               {/* Connecting lines for desktop visual flow */}
-               <div className="hidden sm:block absolute top-1/2 left-0 right-0 h-px bg-border/50 -translate-y-1/2 z-0" />
-               <div className="hidden sm:block absolute top-0 bottom-0 left-1/2 w-px bg-border/50 -translate-x-1/2 z-0" />
-               
                {steps.map((step, idx) => (
-                 <div key={idx} className="bg-card border border-border p-6 rounded-xl relative z-10 hover:shadow-md transition-shadow">
-                   <div className="text-4xl font-black text-secondary-foreground/20 mb-4">{step.num}</div>
-                   <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                   <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                 <div key={idx} className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-white/5 p-8 rounded-2xl relative z-10 hover:shadow-[0_20px_40px_rgba(0,180,216,0.15)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                   <div className="absolute top-0 right-0 p-4 text-7xl font-black text-slate-50 dark:text-white/5 group-hover:text-primary/5 transition-colors pointer-events-none">{step.num}</div>
+                   <div className="bg-primary/10 text-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                      <step.icon className="h-6 w-6" />
+                   </div>
+                   <h3 className="text-xl font-bold mb-3 text-slate-800 dark:text-white group-hover:text-primary transition-colors">{step.title}</h3>
+                   <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">{step.desc}</p>
                  </div>
                ))}
             </div>
