@@ -34,13 +34,17 @@ export function DigitalBanking() {
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="relative z-20 w-[300px] h-[550px] md:w-[350px] md:h-[650px] rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.15)] bg-white overflow-hidden border-[10px] border-white"
+            className="relative z-20 w-[300px] h-[550px] md:w-[350px] md:h-[650px] rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.15)] bg-white overflow-hidden border-[10px] border-white dark:border-[#111827]"
           >
              <div className="absolute inset-0 bg-[url('/happy_fintech_user.jpg')] bg-cover bg-center" />
-             <div className="absolute bottom-10 left-0 w-full text-center text-white px-6">
-                <ShieldCheck className="h-10 w-10 mx-auto mb-2 drop-shadow-md" />
-                <h3 className="text-3xl font-black italic drop-shadow-md">open</h3>
-                <p className="text-[10px] font-bold tracking-widest uppercase mt-1 drop-shadow-md">SIA Bank App</p>
+             
+             {/* Gentle gradient at bottom just to make text readable */}
+             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/80 via-[#0B1120]/10 to-transparent" />
+             
+             <div className="absolute bottom-10 left-0 w-full text-center text-white px-6 z-10">
+                <ShieldCheck className="h-10 w-10 mx-auto mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
+                <h3 className="text-3xl font-black italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">open</h3>
+                <p className="text-[10px] font-bold tracking-widest uppercase mt-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SIA Bank App</p>
              </div>
           </motion.div>
 

@@ -1,10 +1,12 @@
 "use client"
 
+import * as React from "react"
 import { Button } from "@/components/ui/Button"
-import { Landmark, ShieldCheck, Wallet, ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
+import { Landmark, ShieldCheck, Wallet, ArrowRight, Home, CreditCard, Lock, Fingerprint } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function Hero() {
+  const [activeTab, setActiveTab] = React.useState("save")
   return (
     <section className="relative overflow-hidden bg-background pt-12 md:pt-20 pb-20 border-b border-border/50">
       {/* Ultra-Premium Background Mesh Gradients */}
@@ -42,36 +44,102 @@ export function Hero() {
             {/* Tabbed Feature Highlight with Premium styling */}
             <div className="mt-8 relative">
               <div className="absolute inset-0 bg-premium-gradient opacity-5 rounded-2xl pointer-events-none" />
-              <div className="glass-card rounded-2xl p-1.5">
+              <div className="glass-card rounded-2xl p-1.5 hover:shadow-[0_20px_40px_rgba(0,180,216,0.15)] hover:-translate-y-1 transition-all duration-500">
                 <div className="flex bg-background/50 rounded-xl p-1">
-                  <button className="flex-1 py-2 bg-card rounded-lg shadow-sm border border-border/50 text-sm font-bold text-primary transition-all">Save & Grow</button>
-                  <button className="flex-1 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-all">Borrow Smart</button>
-                  <button className="flex-1 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-all">Bank Safe</button>
+                  <button 
+                    onClick={() => setActiveTab("save")}
+                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'save' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                  >
+                    Save & Grow
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab("borrow")}
+                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'borrow' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                  >
+                    Borrow Smart
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab("bank")}
+                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'bank' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                  >
+                    Bank Safe
+                  </button>
                 </div>
                 
-                <div className="p-4 space-y-3">
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 transition-colors cursor-pointer group">
-                    <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
-                      <Landmark className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-bold text-foreground">Secure Dhan Samriddhi FD</p>
-                      <p className="text-xs text-muted-foreground">Earn up to <strong className="text-accent">25.00% p.a.</strong> for 49 Months</p>
-                    </div>
-                  </motion.div>
-                  
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 transition-colors cursor-pointer group">
-                    <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
-                      <Wallet className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-bold text-foreground">SIA Samriddhi Khata</p>
-                      <p className="text-xs text-muted-foreground">High-yield savings with digital access</p>
-                    </div>
-                  </motion.div>
+                <div className="p-4 space-y-3 min-h-[220px] flex flex-col justify-between">
+                  <AnimatePresence mode="wait">
+                    {activeTab === 'save' && (
+                      <motion.div key="save" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.2 }} className="space-y-3">
+                        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
+                          <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
+                            <Landmark className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-bold text-foreground">Secure Dhan Samriddhi FD</p>
+                            <p className="text-xs text-muted-foreground">Earn up to <strong className="text-accent">25.00% p.a.</strong> for 49 Months</p>
+                          </div>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
+                          <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
+                            <Wallet className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-bold text-foreground">SIA Samriddhi Khata</p>
+                            <p className="text-xs text-muted-foreground">High-yield savings with digital access</p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    )}
+                    
+                    {activeTab === 'borrow' && (
+                      <motion.div key="borrow" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.2 }} className="space-y-3">
+                        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
+                          <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
+                            <Home className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-bold text-foreground">Home Loans</p>
+                            <p className="text-xs text-muted-foreground">Lowest interest rates starting at 8.5%</p>
+                          </div>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
+                          <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
+                            <CreditCard className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-bold text-foreground">Personal Loans</p>
+                            <p className="text-xs text-muted-foreground">Instant approval up to ₹ 5 Lakhs</p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    )}
 
-                  <Button className="w-full mt-2 h-11 text-sm font-bold rounded-xl bg-premium-gradient text-white border-0 shadow-lg hover:shadow-primary/25 gap-2">
-                    Open an Account <ArrowRight className="h-4 w-4" />
+                    {activeTab === 'bank' && (
+                      <motion.div key="bank" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.2 }} className="space-y-3">
+                        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
+                          <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
+                            <Lock className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-bold text-foreground">256-bit Encryption</p>
+                            <p className="text-xs text-muted-foreground">Military-grade security for your data</p>
+                          </div>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
+                          <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
+                            <Fingerprint className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-bold text-foreground">Biometric Login</p>
+                            <p className="text-xs text-muted-foreground">Secure access with your fingerprint</p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <Button className="w-full mt-4 h-11 text-sm font-black rounded-xl bg-cyan-gradient text-[#0B1120] border-0 shadow-[0_10px_20px_rgba(0,180,216,0.2)] hover:shadow-[0_15px_30px_rgba(0,180,216,0.4)] hover:-translate-y-1 gap-2 transition-all duration-300">
+                    {activeTab === 'save' ? 'Open an Account' : activeTab === 'borrow' ? 'Apply for Loan' : 'Learn More'} <ArrowRight className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
@@ -85,7 +153,7 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="hidden lg:block lg:col-span-5 relative h-full min-h-[500px] w-full rounded-3xl overflow-hidden border border-border/50 shadow-2xl"
           >
-             <div className="absolute inset-0 bg-premium-gradient opacity-20 z-10" />
+             {/* Removed opacity-20 overlay so the image is fully bright and vivid */}
              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80')] bg-cover bg-center z-0" />
              
              {/* Cyan Flourish accent */}

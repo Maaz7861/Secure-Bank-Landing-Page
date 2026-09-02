@@ -7,7 +7,7 @@ import { HeartHandshake, ArrowRight, Shield } from "lucide-react"
 
 export function Pension() {
   return (
-    <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden" id="pension">
+    <section className="py-20 bg-[#0B1120] text-white relative overflow-hidden" id="pension">
       <div className="absolute inset-0 bg-premium-gradient opacity-90 mix-blend-multiply" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px] pointer-events-none -mr-40 -mt-40" />
 
@@ -26,7 +26,7 @@ export function Pension() {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
               Retire with <span className="text-cyan-gradient">Dignity</span>
             </h2>
-            <p className="text-lg text-primary-foreground/80 font-medium">
+            <p className="text-lg text-white/80 font-medium">
               Secure a guaranteed monthly income. Invest a lump sum today and receive fixed payouts every month without touching your principal.
             </p>
             
@@ -81,7 +81,7 @@ export function Pension() {
                     </div>
                   </div>
                   
-                  <p className="text-center text-xs text-primary-foreground/60 mt-6">*Based on Slab 3 interest rates for 37+ months tenure.</p>
+                  <p className="text-center text-xs text-slate-500 dark:text-white/40 mt-6">*Based on Slab 3 interest rates for 37+ months tenure.</p>
                 </CardContent>
               </div>
             </Card>
