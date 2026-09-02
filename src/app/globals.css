@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Light Theme (Clean Off-white with Slate accents) */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  
+  /* Primary: Neon Cyan */
+  --primary: #00B4D8;
+  --primary-foreground: #FFFFFF;
+  
+  /* Secondary: Slate */
+  --secondary: #E2E8F0;
+  --secondary-foreground: #1E293B;
+  
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  
+  --accent: #E0F2FE;
+  --accent-foreground: #0369A1;
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FAFAFA;
+  
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #00B4D8;
+  
+  --radius: 0.75rem; /* 12px for standard sizes */
+}
+
+.dark {
+  /* Dark Theme (Deep Slate Blue from image) */
+  --background: #090E17; /* Very dark slate blue base */
+  --foreground: #F8FAFC;
+  
+  /* Cards use glassmorphism or slight lighter slate */
+  --card: #111827; 
+  --card-foreground: #F8FAFC;
+  --popover: #111827;
+  --popover-foreground: #F8FAFC;
+  
+  /* Primary: Neon Cyan */
+  --primary: #00B4D8;
+  --primary-foreground: #FFFFFF;
+  
+  /* Secondary: Slightly lighter dark slate */
+  --secondary: #1F2937; 
+  --secondary-foreground: #F8FAFC;
+  
+  --muted: #1F2937;
+  --muted-foreground: #94A3B8;
+  
+  --accent: #0284C7;
+  --accent-foreground: #FAFAFA;
+  
+  --destructive: #7F1D1D;
+  --destructive-foreground: #FAFAFA;
+  
+  --border: #1F2937;
+  --input: #1F2937;
+  --ring: #00B4D8;
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
