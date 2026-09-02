@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Moon, Sun, Menu, ChevronDown, Globe, Search, ShieldCheck } from "lucide-react"
-import { useTheme } from "next-themes"
+import { useTheme } from "@/components/ThemeProvider"
 import { Button } from "@/components/ui/Button"
 import { motion, AnimatePresence } from "framer-motion"
 
