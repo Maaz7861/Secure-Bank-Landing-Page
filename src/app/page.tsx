@@ -17,6 +17,7 @@ import { SiaMitra } from "@/components/SiaMitra";
 import { BranchLocator } from "@/components/BranchLocator";
 import { Testimonials } from "@/components/Testimonials";
 import { FinalCTA } from "@/components/FinalCTA";
+import { FloatingCTABar } from "@/components/FloatingCTABar";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+      <FloatingCTABar />
     </>
   );
 }

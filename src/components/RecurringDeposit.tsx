@@ -5,15 +5,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Button } from "@/components/ui/Button"
 import { motion } from "framer-motion"
 import { PiggyBank, CalendarRange, Clock } from "lucide-react"
+import { useModal } from "@/context/ModalContext"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function RecurringDeposit() {
+  const { openAccount } = useModal()
+  const { t } = useLanguage()
+
   return (
     <section className="py-20 bg-background" id="rd">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Dhanpravah (Recurring Deposit)</h2>
           <p className="text-muted-foreground font-medium text-lg">
-            Build a corpus gradually. Whether you save daily from your shop&apos;s earnings or monthly from your salary, we have a plan for you.
+            {t(
+              "Build a corpus gradually. Whether you save daily from your shop's earnings or monthly from your salary, we have a plan for you.",
+              "धीरे-धीरे एक बड़ा फंड बनाएं। चाहे आप अपनी दुकान की कमाई से रोजाना बचाएं या अपनी सैलरी से हर महीने, हमारे पास आपके लिए सही योजना है।"
+            )}
           </p>
         </div>
 
@@ -43,7 +51,12 @@ export function RecurringDeposit() {
                       <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Flexible tenures (12 to 60 months)</li>
                       <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Auto-debit from SIA Savings Account</li>
                     </ul>
-                    <Button className="w-max bg-primary text-primary-foreground font-bold">Start Monthly RD</Button>
+                    <Button 
+                      onClick={() => openAccount({ planName: "SIA Dhanpravah Monthly RD", planType: "rd" })}
+                      className="w-max bg-cyan-gradient text-black font-bold border-0 hover:opacity-90 shadow-md cursor-pointer"
+                    >
+                      {t("Start Monthly RD →", "मासिक आरडी शुरू करें →")}
+                    </Button>
                   </div>
                   
                   <div className="p-8 md:p-12 flex flex-col justify-center">
@@ -90,7 +103,12 @@ export function RecurringDeposit() {
                       <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> Doorstep collection by SIA Agents</li>
                       <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> Earn 6.00% p.a. simple interest</li>
                     </ul>
-                    <Button className="w-max bg-accent text-[#0B1120] hover:bg-accent/90 font-bold">Request Agent Visit</Button>
+                    <Button 
+                      onClick={() => openAccount({ planName: "SIA Daily Pigmy RD", planType: "rd" })}
+                      className="w-max bg-cyan-gradient text-black hover:opacity-90 font-bold border-0 shadow-md cursor-pointer"
+                    >
+                      {t("Request Agent Visit →", "एजेंट विजिट का अनुरोध करें →")}
+                    </Button>
                   </div>
                   
                   <div className="p-8 md:p-12 flex flex-col justify-center text-center">

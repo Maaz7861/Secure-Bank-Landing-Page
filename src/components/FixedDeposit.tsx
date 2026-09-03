@@ -3,9 +3,14 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Card } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
-import { AlertCircle, Calendar } from "lucide-react"
+import { AlertCircle, Calendar, ArrowRight } from "lucide-react"
+import { useModal } from "@/context/ModalContext"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function FixedDeposit() {
+  const { openAccount } = useModal()
+  const { t } = useLanguage()
+
   const slabs = [
     {
       id: "slab1",
@@ -44,9 +49,12 @@ export function FixedDeposit() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Secure Dhan Samriddhi (FD)</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">SIA Dhan Samriddhi (Fixed Deposit)</h2>
             <p className="text-muted-foreground">
-              Market-leading fixed deposit rates. Secure your future with guaranteed returns up to 25.00% p.a. tailored to your investment slab.
+              {t(
+                "Market-leading fixed deposit rates. Secure your future with guaranteed returns up to 25.00% p.a. tailored to your investment slab.",
+                "मार्केट-लीडिंग फिक्स्ड डिपॉजिट ब्याज दरें। अपनी निवेश स्लैब के अनुसार 25.00% प्रति वर्ष तक के गारंटीड रिटर्न के साथ अपना भविष्य सुरक्षित करें।"
+              )}
             </p>
           </div>
           
@@ -75,13 +83,17 @@ export function FixedDeposit() {
                   <div className="text-primary font-bold">Interest (p.a.)</div>
                   <div>Base Return</div>
                   <div>Mini Lock</div>
-                  <div>Early Rate</div>
                   <div>Penalty</div>
+                  <div>Action</div>
                 </div>
                 
                 <div className="divide-y divide-border/50">
                   {slab.rates.map((rate, rIdx) => (
-                    <div key={rIdx} className="grid grid-cols-1 md:grid-cols-6 gap-4 p-4 items-center hover:bg-secondary/20 transition-colors">
+                    <div 
+                      key={rIdx} 
+                      onClick={() => openAccount({ planName: `SIA FD ${rate.tenure} (${rate.rate})`, planType: "fd" })}
+                      className="grid grid-cols-1 md:grid-cols-6 gap-4 p-4 items-center hover:bg-secondary/30 transition-colors cursor-pointer group"
+                    >
                       {/* Mobile Labels + Values */}
                       <div className="flex items-center gap-3">
                         <Calendar className="h-4 w-4 text-muted-foreground hidden md:block" />
@@ -106,13 +118,14 @@ export function FixedDeposit() {
                       </div>
                       
                       <div className="flex md:block justify-between items-center">
-                        <span className="md:hidden text-xs text-muted-foreground uppercase font-semibold">Premature Rate</span>
-                        <span className="text-sm text-muted-foreground">{rate.preRate}</span>
-                      </div>
-                      
-                      <div className="flex md:block justify-between items-center">
                         <span className="md:hidden text-xs text-muted-foreground uppercase font-semibold">Penalty (+GST)</span>
                         <span className="text-sm text-destructive font-medium">{rate.penalty}</span>
+                      </div>
+
+                      <div className="text-right">
+                        <Button className="h-8 px-3 text-xs bg-cyan-gradient text-black font-bold border-0 opacity-90 group-hover:opacity-100 transition-opacity">
+                          Book FD <ArrowRight className="h-3 w-3 ml-1" />
+                        </Button>
                       </div>
                     </div>
                   ))}
@@ -120,7 +133,13 @@ export function FixedDeposit() {
               </Card>
               <div className="mt-4 flex justify-between items-center text-xs text-muted-foreground">
                 <p>* Premature withdrawal is always allowed after the mini lock period.</p>
-                <Button variant="link" className="h-auto p-0">Open FD Now →</Button>
+                <Button 
+                  onClick={() => openAccount({ planName: "SIA Dhan Samriddhi (FD)", planType: "fd" })}
+                  variant="link" 
+                  className="h-auto p-0 text-primary hover:underline cursor-pointer font-bold"
+                >
+                  {t("Open FD Now →", "अभी एफडी खोलें →")}
+                </Button>
               </div>
             </TabsContent>
           ))}

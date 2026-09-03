@@ -4,8 +4,13 @@ import { Button } from "@/components/ui/Button"
 import { motion } from "framer-motion"
 import { HeartHandshake, ArrowRight, Shield } from "lucide-react"
 import Image from "next/image"
+import { useModal } from "@/context/ModalContext"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Pension() {
+  const { openAccount } = useModal()
+  const { t } = useLanguage()
+
   return (
     <section className="py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-[#011c14] via-[#022f22] to-[#01140e] dark:bg-none dark:bg-[#171717] text-white" id="pension">
       {/* Dark mode spotlight ambient glow (Emerald + Gold) */}
@@ -38,7 +43,10 @@ export function Pension() {
               Retire with <span className="text-gold-gradient">Dignity</span>
             </h2>
             <p className="text-base md:text-lg text-emerald-100/90 font-medium leading-relaxed">
-              Secure a guaranteed monthly income. Invest a lump sum today and receive fixed payouts every month without touching your principal.
+              {t(
+                "Secure a guaranteed monthly income. Invest a lump sum today and receive fixed payouts every month without touching your principal.",
+                "एक निश्चित मासिक आय सुरक्षित करें। आज एकमुश्त निवेश करें और अपने मूलधन को छुए बिना हर महीने निश्चित भुगतान प्राप्त करें।"
+              )}
             </p>
             
             <ul className="space-y-4 pt-2">
@@ -57,8 +65,11 @@ export function Pension() {
             </ul>
 
             <div className="pt-4">
-              <Button className="w-full sm:w-auto bg-cyan-gradient text-black hover:opacity-95 font-bold border-0 h-12 px-8 text-base shadow-xl shadow-black/40 gap-2">
-                Calculate Pension <ArrowRight className="h-5 w-5" />
+              <Button 
+                onClick={() => openAccount({ planName: "SIA Jeevan Nidhi (Pension Plan)", planType: "pension" })}
+                className="w-full sm:w-auto bg-cyan-gradient text-black hover:opacity-95 font-bold border-0 h-12 px-8 text-base shadow-xl shadow-black/40 gap-2 cursor-pointer"
+              >
+                {t("Calculate & Apply for Pension", "पेंशन की गणना करें और आवेदन करें")} <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </motion.div>

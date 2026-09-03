@@ -4,19 +4,24 @@ import { Card, CardContent } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
 import { Check, Building2 } from "lucide-react"
 import { motion } from "framer-motion"
+import { useModal } from "@/context/ModalContext"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function CurrentAccount() {
+  const { openAccount } = useModal()
+  const { t } = useLanguage()
+
   const tiers = [
     {
-      name: "Secure Vyapar",
-      target: "Small shopkeepers",
+      name: "SIA Secure Vyapar",
+      target: "Small shopkeepers, local vendors",
       minBalance: "₹ 5,000",
       cashLimit: "₹ 2,00,000 / mo",
       features: ["Proprietorship only", "Standard charges for NEFT", "Monthly email statement"],
       elite: false
     },
     {
-      name: "Secure Udyog",
+      name: "SIA Secure Udyog",
       target: "Regular traders, B2C sellers",
       minBalance: "₹ 25,000",
       cashLimit: "₹ 10,00,000 / mo",
@@ -24,7 +29,7 @@ export function CurrentAccount() {
       elite: false
     },
     {
-      name: "Secure Corporate",
+      name: "SIA Secure Corporate",
       target: "Contractors, B2B distributors",
       minBalance: "₹ 50,000",
       cashLimit: "₹ 50,00,000 / mo",
@@ -60,9 +65,18 @@ export function CurrentAccount() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">SIA Vyapar Khata</h2>
               <p className="text-muted-foreground text-lg mb-6">
-                Current accounts designed for local businesses. Enjoy high free-cash deposit limits and overdraft facilities against your fixed deposits.
+                {t(
+                  "Current accounts designed for local businesses. Enjoy high free-cash deposit limits and overdraft facilities against your fixed deposits.",
+                  "स्थानीय व्यवसायों के लिए डिज़ाइन किया गया चालू खाता। उच्च निःशुल्क नकद जमा सीमा और ओवरड्राफ्ट सुविधाओं का आनंद लें।"
+                )}
               </p>
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent/10 h-12 px-8 font-bold">Compare Limits</Button>
+              <Button 
+                onClick={() => openAccount({ planName: "SIA Vyapar Khata (Current)", planType: "current" })}
+                variant="outline" 
+                className="border-accent text-accent hover:bg-accent/10 h-12 px-8 font-bold cursor-pointer"
+              >
+                {t("Compare Limits & Apply", "सीमाओं की तुलना करें और आवेदन करें")}
+              </Button>
             </div>
             <div className="lg:w-1/2 w-full">
               <div className="relative h-64 md:h-80 w-full rounded-3xl overflow-hidden shadow-2xl border border-border">
@@ -114,8 +128,11 @@ export function CurrentAccount() {
                       ))}
                     </ul>
                     
-                    <Button className="w-full mt-auto bg-cyan-gradient text-black font-bold border-0 hover:opacity-90 shadow-[0_4px_15px_rgba(16,185,129,0.2)]">
-                      Open Current A/C
+                    <Button 
+                      onClick={() => openAccount({ planName: `${tier.name} (Current Account)`, planType: "current" })}
+                      className="w-full mt-auto bg-cyan-gradient text-black font-bold border-0 hover:opacity-90 shadow-[0_4px_15px_rgba(16,185,129,0.2)] cursor-pointer"
+                    >
+                      {t("Open Current A/C", "चालू खाता खोलें")}
                     </Button>
                   </CardContent>
                 </Card>
