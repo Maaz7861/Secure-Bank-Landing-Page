@@ -17,7 +17,7 @@ export function Navbar() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 30)
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
@@ -25,12 +25,8 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full flex flex-col">
-      {/* Top Utility Strip (Smoothly collapses on scroll like Axis Bank) */}
-      <div 
-        className={`bg-primary text-primary-foreground text-xs hidden md:block transition-all duration-300 ease-in-out overflow-hidden ${
-          isScrolled ? 'max-h-0 opacity-0 pointer-events-none' : 'max-h-10 opacity-100'
-        }`}
-      >
+      {/* Top Utility Strip (Stable & fixed height, no layout jump) */}
+      <div className="bg-primary text-primary-foreground text-xs hidden md:block border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center h-9">
           <div className="flex items-center gap-6 font-semibold opacity-90">
             <a href="#" className="hover:opacity-100 transition-colors">Personal</a>
@@ -50,12 +46,12 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Main Glassmorphism Navbar */}
+      {/* Main Glassmorphism Navbar - Single Smooth Transition */}
       <div 
         className={`w-full transition-all duration-300 ease-in-out ${
           isScrolled 
-            ? 'bg-background/95 backdrop-blur-md shadow-md' 
-            : 'bg-background/80 backdrop-blur-xl shadow-none'
+            ? 'bg-background/95 backdrop-blur-md shadow-md border-b border-border/40' 
+            : 'bg-background/80 backdrop-blur-xl border-b border-transparent shadow-none'
         }`}
       >
         <div 
