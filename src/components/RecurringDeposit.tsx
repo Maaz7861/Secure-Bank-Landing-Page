@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/Card"
+import { Card,  } from "@/components/ui/Card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Button } from "@/components/ui/Button"
 import { motion } from "framer-motion"
@@ -13,7 +13,7 @@ export function RecurringDeposit() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Dhanpravah (Recurring Deposit)</h2>
           <p className="text-muted-foreground font-medium text-lg">
-            Build a corpus gradually. Whether you save daily from your shop's earnings or monthly from your salary, we have a plan for you.
+            Build a corpus gradually. Whether you save daily from your shop&apos;s earnings or monthly from your salary, we have a plan for you.
           </p>
         </div>
 

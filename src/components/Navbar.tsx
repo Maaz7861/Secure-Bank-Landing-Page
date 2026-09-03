@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun, Menu, ChevronDown, Globe, Search, ShieldCheck } from "lucide-react"
+import { Moon, Sun, Menu, ChevronDown, Globe } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/Button"
 import { motion, AnimatePresence } from "framer-motion"
@@ -14,6 +14,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false)
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -55,7 +56,7 @@ export function Navbar() {
         className="shadow-sm"
       >
         <motion.div 
-          animate={{ height: isScrolled ? 64 : 80 }} // 64px (h-16) to 80px (h-20)
+          animate={{ height: isScrolled ? 64 : 80 }}
           transition={{ duration: 0.3 }}
           className="container mx-auto px-4 lg:px-8 flex items-center justify-between"
         >
@@ -87,7 +88,7 @@ export function Navbar() {
               transition={{ duration: 0.3 }}
               className="flex flex-col justify-center overflow-hidden whitespace-nowrap"
             >
-              <span className="text-[16px] md:text-xl font-black tracking-tight text-foreground leading-none mb-1">
+              <span className="text-[16px] md:text-xl font-black tracking-tight text-gold-gradient leading-none mb-1">
                 SECURE UNITED
               </span>
               <span className="text-[9px] md:text-[10px] text-muted-foreground font-bold tracking-widest leading-none">
@@ -102,12 +103,12 @@ export function Navbar() {
               Accounts
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
-            <a href="#fd" className="hover:text-primary transition-colors relative group">
+            <a href="#deposits" className="hover:text-primary transition-colors relative group">
               Deposits
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
-            <a href="#loans" className="hover:text-primary transition-colors relative group">
-              Loans
+            <a href="#pension" className="hover:text-primary transition-colors relative group">
+              Investments
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
             <a href="#digital" className="hover:text-primary transition-colors relative group">
@@ -116,27 +117,24 @@ export function Navbar() {
             </a>
           </nav>
 
-          {/* Action Area (Toggle, Search, Login) */}
+          {/* Action Area (Toggle, Login) */}
           <div className="flex items-center gap-3 md:gap-4">
-            
-            <Search className="h-4 w-4 text-muted-foreground hover:text-foreground cursor-pointer hidden sm:block transition-colors" />
 
-            {/* Theme Toggle restored */}
-            {mounted && (
-              <button 
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
-                className="p-2 rounded-full hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-all"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </button>
-            )}
+            {/* Theme Toggle — always rendered, hidden before mount to avoid layout jump */}
+            <button 
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
+              className="p-2 rounded-full hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-all"
+              aria-label="Toggle theme"
+              style={{ visibility: mounted ? 'visible' : 'hidden' }}
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
 
             <div className="hidden sm:flex items-center gap-3 border-l border-border pl-4 ml-1">
-              <Button variant="outline" className="h-10 px-4 font-bold hidden md:flex border-primary/20 text-foreground hover:bg-primary/10">
+              <Button className="h-10 px-4 font-bold hidden md:flex bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 border-0">
                 Open Digital A/C
               </Button>
-              <Button className="h-10 px-6 font-bold bg-cyan-gradient text-[#0B1120] hover:opacity-90 shadow-md shadow-primary/20 gap-2">
+              <Button className="h-10 px-6 font-bold bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 gap-2 border-0">
                 Login <ChevronDown className="h-4 w-4" />
               </Button>
             </div>
@@ -162,13 +160,13 @@ export function Navbar() {
           >
             <div className="flex flex-col p-4 gap-4 font-bold text-foreground">
               <a href="#savings" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Accounts</a>
-              <a href="#fd" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Deposits</a>
-              <a href="#loans" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Loans</a>
+              <a href="#deposits" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Deposits</a>
+              <a href="#pension" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Investments</a>
               <a href="#digital" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Digital Banking</a>
               
               <div className="grid grid-cols-2 gap-3 mt-2">
-                <Button variant="outline" className="w-full">Open A/C</Button>
-                <Button className="w-full bg-cyan-gradient text-[#0B1120]">Login</Button>
+                <Button className="w-full bg-cyan-gradient text-black border-0">Open A/C</Button>
+                <Button className="w-full bg-cyan-gradient text-black border-0">Login</Button>
               </div>
             </div>
           </motion.div>

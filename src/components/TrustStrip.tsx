@@ -1,56 +1,58 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Building, MapPin, Users, Coins } from "lucide-react"
 
 export function TrustStrip() {
   return (
     <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        
-        {/* Axis Bank Style Solid Block Layout */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-stretch bg-[#0B1120] text-white rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,180,216,0.15)]"
+          className="flex flex-col md:flex-row items-stretch rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(16,185,129,0.12)] border border-[#1a1a1a]"
+          style={{ backgroundColor: '#0A0A0A', color: 'white' }}
         >
-          {/* Subtle cyan glow in the background */}
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
-          {/* Left Side: Stats and Content */}
-          <div className="md:w-1/2 p-10 md:p-16 relative z-10 flex flex-col justify-center text-white">
-            <h2 className="text-3xl md:text-5xl font-extrabold italic mb-2 tracking-tight">open <span className="font-medium not-italic">to the progress of all</span></h2>
-            <p className="text-white/90 text-lg mb-10">Committed to our responsibility towards the society.</p>
+          {/* Emerald glow top-left */}
+          <div className="absolute top-0 left-0 w-80 h-80 rounded-full blur-[120px] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%)' }} />
+          {/* Gold glow top-right */}
+          <div className="absolute top-0 right-1/4 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)' }} />
+
+          {/* Left Side */}
+          <div className="md:w-1/2 p-10 md:p-16 relative z-10 flex flex-col justify-center" style={{ color: 'white' }}>
+            <h2 className="text-3xl md:text-5xl font-extrabold italic mb-2 tracking-tight" style={{ color: 'white' }}>
+              open <span className="font-medium not-italic">to the progress of all</span>
+            </h2>
+            <p className="text-lg mb-10" style={{ color: 'rgba(255,255,255,0.70)' }}>
+              Committed to our responsibility towards the society.
+            </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-              <div className="border border-white/20 bg-white/5 rounded-xl p-6 text-center backdrop-blur-sm transition-all hover:bg-white/10">
-                <p className="text-2xl md:text-3xl font-black mb-2">2.05M+</p>
-                <p className="text-xs text-white/80 font-medium">Households Across India</p>
-              </div>
-              <div className="border border-white/20 bg-white/5 rounded-xl p-6 text-center backdrop-blur-sm transition-all hover:bg-white/10">
-                <p className="text-2xl md:text-3xl font-black mb-2">100Cr+</p>
-                <p className="text-xs text-white/80 font-medium">National Cancer Grid (NCG)</p>
-              </div>
-              <div className="border border-white/20 bg-white/5 rounded-xl p-6 text-center backdrop-blur-sm transition-all hover:bg-white/10">
-                <p className="text-2xl md:text-3xl font-black mb-2">3.27M+</p>
-                <p className="text-xs text-white/80 font-medium">Trees Planted</p>
-              </div>
+              {[
+                { val: '2.05M+', label: 'Households Across India' },
+                { val: '100Cr+', label: 'National Cancer Grid (NCG)' },
+                { val: '3.27M+', label: 'Trees Planted' },
+              ].map((stat, i) => (
+                <div key={i} className="rounded-xl p-6 text-center transition-all hover:bg-white/10" style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.04)' }}>
+                  <p className="text-2xl md:text-3xl font-black mb-2" style={{ color: 'white' }}>{stat.val}</p>
+                  <p className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.55)' }}>{stat.label}</p>
+                </div>
+              ))}
             </div>
             
             <div>
-              <button className="bg-white text-[#7A1336] px-8 py-3 rounded-lg font-bold hover:bg-white/90 transition-colors shadow-lg">
+              <button className="bg-cyan-gradient text-black px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-all shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:-translate-y-0.5">
                 Know More
               </button>
             </div>
           </div>
           
-          {/* Right Side: Clean Edge-to-Edge Image with Seamless Fade */}
+          {/* Right Side: Image */}
           <div className="md:w-1/2 h-[300px] md:h-auto relative">
              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&q=80')] bg-cover bg-center" />
-             <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120] via-[#0B1120]/60 to-transparent hidden md:block" />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-[#0B1120]/60 to-transparent md:hidden" />
+             <div className="absolute inset-0 hidden md:block" style={{ background: 'linear-gradient(to right, #0A0A0A 0%, rgba(10,10,10,0.6) 40%, transparent 100%)' }} />
+             <div className="absolute inset-0 md:hidden" style={{ background: 'linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0.6) 40%, transparent 100%)' }} />
           </div>
-          
         </motion.div>
       </div>
     </section>

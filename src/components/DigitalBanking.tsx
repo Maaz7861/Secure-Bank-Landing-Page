@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Smartphone, CreditCard, ShieldCheck, Zap, Coins, FileText, Send, Lock } from "lucide-react"
+import { CreditCard, ShieldCheck, Zap, Coins, FileText, Send, Lock } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function DigitalBanking() {
@@ -55,22 +55,22 @@ export function DigitalBanking() {
               initial={{ opacity: 0, scale: 0.8, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: card.delay, duration: 0.5 }}
-              animate={{ 
-                y: [0, -10, 0],
-              }}
-              // @ts-ignore
-              transition={{
+              transition={{ 
+                delay: card.delay, 
+                duration: 0.5,
                 y: {
                   duration: 3 + idx,
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut",
-                }
+                } as unknown
+              }}
+              animate={{ 
+                y: [0, -10, 0],
               }}
               className={`absolute ${card.position} z-30 hidden md:flex`}
             >
-              <div className={`glass-card p-3 md:p-4 rounded-2xl flex items-center gap-3 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,180,216,0.15)] transition-all cursor-pointer w-[190px] md:w-[230px] group`}>
+              <div className={`glass-card p-3 md:p-4 rounded-2xl flex items-center gap-3 hover:scale-105 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] transition-all cursor-pointer w-[190px] md:w-[230px] group`}>
                  <div className="bg-primary/10 text-primary dark:bg-primary/20 p-2.5 rounded-full shrink-0 group-hover:bg-primary group-hover:text-white dark:group-hover:text-[#0B1120] transition-colors">
                     <card.icon className="h-4 w-4 md:h-5 md:w-5" />
                  </div>
