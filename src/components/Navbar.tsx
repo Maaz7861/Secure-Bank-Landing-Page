@@ -5,13 +5,22 @@ import { Moon, Sun, Menu, ChevronDown, Globe, Search, ShieldCheck } from "lucide
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/Button"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+  const [isScrolled, setIsScrolled] = React.useState(false)
 
-  React.useEffect(() => setMounted(true), [])
+  React.useEffect(() => {
+    setMounted(true)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full flex flex-col">
@@ -37,17 +46,54 @@ export function Navbar() {
       </div>
 
       {/* Main Glassmorphism Navbar */}
-      <div className="bg-background/80 backdrop-blur-xl border-b border-border shadow-sm">
-        <div className="container mx-auto px-4 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+      <motion.div 
+        animate={{
+          backgroundColor: isScrolled ? "hsl(var(--background) / 0.95)" : "hsl(var(--background) / 0.8)",
+          backdropFilter: isScrolled ? "blur(16px)" : "blur(24px)",
+        }}
+        transition={{ duration: 0.3 }}
+        className="shadow-sm"
+      >
+        <motion.div 
+          animate={{ height: isScrolled ? 64 : 80 }} // 64px (h-16) to 80px (h-20)
+          transition={{ duration: 0.3 }}
+          className="container mx-auto px-4 lg:px-8 flex items-center justify-between"
+        >
           
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="bg-cyan-gradient p-2 rounded-lg text-[#0B1120] shadow-lg shadow-primary/20">
-              <ShieldCheck className="h-6 w-6" />
-            </div>
-            <span className="text-xl md:text-2xl font-black tracking-tight text-foreground">
-              SIA <span className="text-muted-foreground font-medium hidden sm:inline">Bank</span>
-            </span>
+          {/* Logo & Brand */}
+          <div className="flex items-center gap-3">
+            <motion.div 
+              animate={{ 
+                height: isScrolled ? 40 : 52, // scales down on scroll
+              }}
+              transition={{ duration: 0.3 }}
+              className="relative w-auto flex items-center justify-center"
+            >
+              <Image 
+                src="/logo.png" 
+                alt="Secure United Logo" 
+                width={200} 
+                height={60} 
+                className="h-full w-auto object-contain"
+                priority
+              />
+            </motion.div>
+            
+            <motion.div
+              animate={{
+                scale: isScrolled ? 0.9 : 1,
+                originX: 0
+              }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col justify-center overflow-hidden whitespace-nowrap"
+            >
+              <span className="text-[16px] md:text-xl font-black tracking-tight text-foreground leading-none mb-1">
+                SECURE UNITED
+              </span>
+              <span className="text-[9px] md:text-[10px] text-muted-foreground font-bold tracking-widest leading-none">
+                URBAN CREDIT CO-OP
+              </span>
+            </motion.div>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -102,8 +148,8 @@ export function Navbar() {
               <Menu className="h-6 w-6" />
             </button>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
