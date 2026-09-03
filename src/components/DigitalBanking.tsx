@@ -63,7 +63,7 @@ export function DigitalBanking() {
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut",
-                } as unknown
+                } as any
               }}
               animate={{ 
                 y: [0, -10, 0],
