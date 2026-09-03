@@ -31,6 +31,7 @@ export function ThemeProvider({
   React.useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme
     if (saved) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setThemeState(saved)
     }
     
