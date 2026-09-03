@@ -45,7 +45,7 @@ export function Onboarding() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
                {steps.map((step, idx) => (
                  <div key={idx} className="bg-card border border-border hover:border-primary/50 p-8 rounded-2xl relative z-10 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
-                   <div style={{ opacity: 0.08 }} className="absolute top-0 right-0 p-4 text-7xl font-black text-foreground group-hover:opacity-30 transition-opacity duration-300 pointer-events-none select-none">{step.num}</div>
+                   <div className="absolute top-0 right-0 p-4 text-7xl font-black text-slate-200 dark:text-white/10 group-hover:text-slate-900 dark:group-hover:text-white/60 transition-colors duration-300 pointer-events-none select-none">{step.num}</div>
                    <div className="bg-primary/10 dark:bg-primary/15 text-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
                       <step.icon className="h-6 w-6" />
                    </div>
