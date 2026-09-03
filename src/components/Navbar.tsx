@@ -17,16 +17,20 @@ export function Navbar() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 50)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full flex flex-col">
-      {/* Top Utility Strip (Axis Bank Style) */}
-      <div className="bg-primary text-primary-foreground text-xs hidden md:block">
+      {/* Top Utility Strip (Smoothly collapses on scroll like Axis Bank) */}
+      <div 
+        className={`bg-primary text-primary-foreground text-xs hidden md:block transition-all duration-300 ease-in-out overflow-hidden ${
+          isScrolled ? 'max-h-0 opacity-0 pointer-events-none' : 'max-h-10 opacity-100'
+        }`}
+      >
         <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center h-9">
           <div className="flex items-center gap-6 font-semibold opacity-90">
             <a href="#" className="hover:opacity-100 transition-colors">Personal</a>
@@ -48,16 +52,24 @@ export function Navbar() {
 
       {/* Main Glassmorphism Navbar */}
       <div 
-        className={`shadow-sm transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md' : 'bg-background/80 backdrop-blur-xl'}`}
+        className={`w-full transition-all duration-300 ease-in-out ${
+          isScrolled 
+            ? 'bg-background/95 backdrop-blur-md shadow-md' 
+            : 'bg-background/80 backdrop-blur-xl shadow-none'
+        }`}
       >
         <div 
-          className={`container mx-auto px-4 lg:px-8 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20'}`}
+          className={`container mx-auto px-4 lg:px-8 flex items-center justify-between transition-all duration-300 ease-in-out ${
+            isScrolled ? 'h-16' : 'h-20'
+          }`}
         >
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3">
             <div 
-              className={`relative w-auto flex items-center justify-center transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`}
+              className={`relative w-auto flex items-center justify-center transition-all duration-300 ease-in-out ${
+                isScrolled ? 'h-9 md:h-10' : 'h-11 md:h-12'
+              }`}
             >
               <Image 
                 src="/logo.png" 
@@ -70,7 +82,9 @@ export function Navbar() {
             </div>
             
             <div
-              className={`flex flex-col justify-center overflow-hidden whitespace-nowrap transition-transform duration-300 origin-left ${isScrolled ? 'scale-90' : 'scale-100'}`}
+              className={`flex flex-col justify-center overflow-hidden whitespace-nowrap transition-transform duration-300 ease-in-out origin-left ${
+                isScrolled ? 'scale-90' : 'scale-100'
+              }`}
             >
               <span className="text-[16px] md:text-xl font-black tracking-tight text-gold-gradient leading-none mb-1">
                 SECURE UNITED
@@ -104,14 +118,13 @@ export function Navbar() {
           {/* Action Area (Toggle, Login) */}
           <div className="flex items-center gap-3 md:gap-4">
 
-            {/* Theme Toggle — always rendered, hidden before mount to avoid layout jump */}
+            {/* Theme Toggle — mounted safely without layout shifts */}
             <button 
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
-              className="p-2 rounded-full hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-all"
+              className="p-2 rounded-full hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Toggle theme"
-              style={{ visibility: mounted ? 'visible' : 'hidden' }}
             >
-              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {mounted && theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
 
             <div className="hidden sm:flex items-center gap-3 border-l border-border pl-4 ml-1">

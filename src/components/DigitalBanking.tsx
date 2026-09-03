@@ -58,12 +58,6 @@ export function DigitalBanking() {
               transition={{ 
                 delay: card.delay, 
                 duration: 0.5,
-                y: {
-                  duration: 3 + idx,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                } as any
               }}
               animate={{ 
                 y: [0, -10, 0],

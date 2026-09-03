@@ -232,6 +232,7 @@ export function Calculator() {
                           ))}
                         </Pie>
                         <Tooltip 
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           formatter={(value: any) => `₹ ${Number(value || 0).toLocaleString('en-IN')}`}
                           contentStyle={{ backgroundColor: '#171717', border: '1px solid #333', borderRadius: '8px' }}
                           itemStyle={{ color: '#fff', fontWeight: 'bold' }}
