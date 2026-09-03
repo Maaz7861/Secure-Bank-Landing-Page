@@ -34,7 +34,7 @@ export function Hero() {
               </motion.span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]">
                 Your savings. <br />
-                <span className="text-cyan-gradient">Your society.</span>
+                <span className="text-gold-gradient">Your society.</span>
               </h1>
               <p className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed font-medium">
                 Deposits, loans, and digital banking for our members at premium rates set by the society. Experience trust and prosperity together.
@@ -44,7 +44,7 @@ export function Hero() {
             {/* Tabbed Feature Highlight with Premium styling */}
             <div className="mt-8 relative">
               <div className="absolute inset-0 bg-premium-gradient opacity-5 rounded-2xl pointer-events-none" />
-              <div className="glass-card rounded-2xl p-1.5 hover:shadow-[0_20px_40px_rgba(0,180,216,0.15)] hover:-translate-y-1 transition-all duration-500">
+              <div className="glass-card rounded-2xl p-1.5 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-500">
                 <div className="flex bg-background/50 rounded-xl p-1">
                   <button 
                     onClick={() => setActiveTab("save")}
@@ -138,7 +138,7 @@ export function Hero() {
                     )}
                   </AnimatePresence>
 
-                  <Button className="w-full mt-4 h-11 text-sm font-black rounded-xl bg-cyan-gradient text-[#0B1120] border-0 shadow-[0_10px_20px_rgba(0,180,216,0.2)] hover:shadow-[0_15px_30px_rgba(0,180,216,0.4)] hover:-translate-y-1 gap-2 transition-all duration-300">
+                  <Button className="w-full mt-4 h-11 text-sm font-black rounded-xl bg-cyan-gradient text-black border-0 shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.4)] hover:-translate-y-1 gap-2 transition-all duration-300">
                     {activeTab === 'save' ? 'Open an Account' : activeTab === 'borrow' ? 'Apply for Loan' : 'Learn More'} <ArrowRight className="h-4 w-4" />
                   </Button>
                 </div>
@@ -157,7 +157,7 @@ export function Hero() {
              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80')] bg-cover bg-center z-0" />
              
              {/* Cyan Flourish accent */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-gradient blur-3xl opacity-40 z-20" />
+             <div className="absolute top-0 right-0 w-32 h-32 bg-premium-gradient blur-3xl opacity-40 z-20" />
              
              {/* Floating Trust Badge */}
              <motion.div 
@@ -165,7 +165,7 @@ export function Hero() {
                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
                className="absolute bottom-10 left-10 z-30 glass-card p-5 rounded-2xl border-accent/20 flex items-center gap-4 w-72"
              >
-                <div className="bg-cyan-gradient p-3.5 rounded-full text-[#0B1120] shadow-lg">
+                <div className="bg-premium-gradient p-3.5 rounded-full text-black shadow-lg">
                   <ShieldCheck className="h-6 w-6" />
                 </div>
                 <div>

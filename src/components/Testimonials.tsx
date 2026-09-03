@@ -37,7 +37,7 @@ export function Testimonials() {
             <Card key={idx} className="bg-card/50 backdrop-blur-sm border-border hover:shadow-lg transition-all group">
               <CardContent className="p-8 relative">
                 <Quote className="absolute top-6 right-6 h-12 w-12 text-primary/10 group-hover:text-accent/20 transition-colors" />
-                <p className="text-muted-foreground leading-relaxed italic mb-8 relative z-10">"{review.quote}"</p>
+                <p className="text-muted-foreground leading-relaxed italic mb-8 relative z-10">&ldquo;{review.quote}&rdquo;</p>
                 
                 <div className="flex items-center gap-4 border-t border-border/50 pt-4">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">

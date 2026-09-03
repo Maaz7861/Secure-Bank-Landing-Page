@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SIA - Secure Bank",
   description: "Secure United Urban Credit Co-operative Society Ltd.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

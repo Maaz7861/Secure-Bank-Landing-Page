@@ -1,9 +1,9 @@
 "use client"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
-import { Card, CardContent } from "@/components/ui/Card"
+import { Card } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
-import { AlertCircle, Calendar, IndianRupee } from "lucide-react"
+import { AlertCircle, Calendar } from "lucide-react"
 
 export function FixedDeposit() {
   const slabs = [
