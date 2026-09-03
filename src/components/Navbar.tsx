@@ -47,28 +47,17 @@ export function Navbar() {
       </div>
 
       {/* Main Glassmorphism Navbar */}
-      <motion.div 
-        animate={{
-          backgroundColor: isScrolled ? "hsl(var(--background) / 0.95)" : "hsl(var(--background) / 0.8)",
-          backdropFilter: isScrolled ? "blur(16px)" : "blur(24px)",
-        }}
-        transition={{ duration: 0.3 }}
-        className="shadow-sm"
+      <div 
+        className={`shadow-sm transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md' : 'bg-background/80 backdrop-blur-xl'}`}
       >
-        <motion.div 
-          animate={{ height: isScrolled ? 64 : 80 }}
-          transition={{ duration: 0.3 }}
-          className="container mx-auto px-4 lg:px-8 flex items-center justify-between"
+        <div 
+          className={`container mx-auto px-4 lg:px-8 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20'}`}
         >
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3">
-            <motion.div 
-              animate={{ 
-                height: isScrolled ? 40 : 52, // scales down on scroll
-              }}
-              transition={{ duration: 0.3 }}
-              className="relative w-auto flex items-center justify-center"
+            <div 
+              className={`relative w-auto flex items-center justify-center transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`}
             >
               <Image 
                 src="/logo.png" 
@@ -78,15 +67,10 @@ export function Navbar() {
                 className="h-full w-auto object-contain"
                 priority
               />
-            </motion.div>
+            </div>
             
-            <motion.div
-              animate={{
-                scale: isScrolled ? 0.9 : 1,
-                originX: 0
-              }}
-              transition={{ duration: 0.3 }}
-              className="flex flex-col justify-center overflow-hidden whitespace-nowrap"
+            <div
+              className={`flex flex-col justify-center overflow-hidden whitespace-nowrap transition-transform duration-300 origin-left ${isScrolled ? 'scale-90' : 'scale-100'}`}
             >
               <span className="text-[16px] md:text-xl font-black tracking-tight text-gold-gradient leading-none mb-1">
                 SECURE UNITED
@@ -94,7 +78,7 @@ export function Navbar() {
               <span className="text-[9px] md:text-[10px] text-muted-foreground font-bold tracking-widest leading-none">
                 URBAN CREDIT CO-OP
               </span>
-            </motion.div>
+            </div>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -146,8 +130,8 @@ export function Navbar() {
               <Menu className="h-6 w-6" />
             </button>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
