@@ -3,11 +3,16 @@
 import { Card, CardContent } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
 import { Check, Info } from "lucide-react"
+import { useModal } from "@/context/ModalContext"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function SavingsAccount() {
+  const { openAccount } = useModal()
+  const { t } = useLanguage()
+
   const tiers = [
     {
-      name: "Secure Basic",
+      name: "SIA Secure Basic",
       target: "Farmers, Students",
       minBalance: "₹ 500",
       rate: "2.50% p.a.",
@@ -15,7 +20,7 @@ export function SavingsAccount() {
       popular: false
     },
     {
-      name: "Secure Smart",
+      name: "SIA Secure Smart",
       target: "Salaried, Middle-class",
       minBalance: "₹ 5,000",
       rate: "4.00% p.a.",
@@ -23,7 +28,7 @@ export function SavingsAccount() {
       popular: true
     },
     {
-      name: "Secure Elite",
+      name: "SIA Secure Elite",
       target: "HNIs, Core Investors",
       minBalance: "₹ 25,000",
       rate: "7.00% p.a.",
@@ -42,7 +47,10 @@ export function SavingsAccount() {
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <h2 className="text-3xl font-bold tracking-tight mb-4">SIA Samriddhi Khata</h2>
             <p className="text-muted-foreground">
-              A savings account designed for everyone. Choose the tier that matches your daily transaction needs and start earning higher returns today.
+              {t(
+                "A savings account designed for everyone. Choose the tier that matches your daily transaction needs and start earning higher returns today.",
+                "सभी के लिए डिज़ाइन किया गया बचत खाता। अपनी दैनिक आवश्यकताओं के अनुसार स्तर चुनें और अधिक लाभ कमाएं।"
+              )}
             </p>
           </div>
 
@@ -92,9 +100,10 @@ export function SavingsAccount() {
                     
                     <div className="mt-auto pt-6">
                       <Button 
-                        className="w-full font-bold bg-cyan-gradient text-black border-0 hover:opacity-90 shadow-[0_4px_15px_rgba(16,185,129,0.15)]"
+                        onClick={() => openAccount({ planName: `${tier.name} (${tier.rate})`, planType: "savings" })}
+                        className="w-full font-bold bg-cyan-gradient text-black border-0 hover:opacity-90 shadow-[0_4px_15px_rgba(16,185,129,0.15)] cursor-pointer"
                       >
-                        {tier.popular ? 'Apply Now' : 'Explore More'}
+                        {tier.popular ? t("Apply Now", "अभी आवेदन करें") : t("Explore & Open", "देखें और खोलें")}
                       </Button>
                     </div>
                   </CardContent>
@@ -104,7 +113,11 @@ export function SavingsAccount() {
           </div>
           
           <div className="mt-10 text-center">
-            <Button variant="link" className="gap-2 text-primary hover:text-primary/80 font-medium">
+            <Button 
+              onClick={() => openAccount({ planName: "SIA Samriddhi Khata (Savings)", planType: "savings" })}
+              variant="link" 
+              className="gap-2 text-primary hover:text-primary/80 font-medium cursor-pointer"
+            >
               Compare all features <Info className="h-4 w-4" />
             </Button>
           </div>

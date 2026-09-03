@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { ModalProvider } from "@/context/ModalContext";
+import { LoginModal } from "@/components/modals/LoginModal";
+import { OpenAccountModal } from "@/components/modals/OpenAccountModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SIA - Secure Bank",
-  description: "Secure United Urban Credit Co-operative Society Ltd.",
+  title: "SIA - Secure United Urban Credit Co-operative Society Ltd.",
+  description: "Secure United Urban Credit Co-operative Society Ltd. - Banking & Deposit Schemes.",
   icons: {
     icon: "/logo.png",
   },
@@ -39,14 +43,20 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground text-base">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <LanguageProvider>
+          <ModalProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem={false}
+              disableTransitionOnChange
+            >
+              {children}
+              <LoginModal />
+              <OpenAccountModal />
+            </ThemeProvider>
+          </ModalProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

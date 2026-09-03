@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/Button"
 import { Landmark, ShieldCheck, Wallet, ArrowRight, Home, CreditCard, Lock, Fingerprint } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
+import { useModal } from "@/context/ModalContext"
+
 export function Hero() {
+  const { openAccount } = useModal()
   const [activeTab, setActiveTab] = React.useState("save")
   return (
     <section className="relative overflow-hidden bg-background pt-12 md:pt-20 pb-20 border-b border-border/50">
@@ -138,7 +141,10 @@ export function Hero() {
                     )}
                   </AnimatePresence>
 
-                  <Button className="w-full mt-4 h-11 text-sm font-black rounded-xl bg-cyan-gradient text-black border-0 shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.4)] hover:-translate-y-1 gap-2 transition-all duration-300">
+                  <Button 
+                    onClick={() => openAccount()}
+                    className="w-full mt-4 h-11 text-sm font-black rounded-xl bg-cyan-gradient text-black border-0 shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.4)] hover:-translate-y-1 gap-2 transition-all duration-300 cursor-pointer"
+                  >
                     {activeTab === 'save' ? 'Open an Account' : activeTab === 'borrow' ? 'Apply for Loan' : 'Learn More'} <ArrowRight className="h-4 w-4" />
                   </Button>
                 </div>

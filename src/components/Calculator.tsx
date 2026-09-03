@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/Button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Calculator as CalcIcon, Minus, Plus } from "lucide-react"
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts"
+import { useModal } from "@/context/ModalContext"
 
 export function Calculator() {
+  const { openAccount } = useModal()
   const [product, setProduct] = useState("fd")
   const [amount, setAmount] = useState(100000)
   const [tenure, setTenure] = useState(36) // months
@@ -262,8 +264,18 @@ export function Calculator() {
                     </div>
                   </div>
 
-                  <Button className="w-full mt-4 h-12 text-sm font-black bg-cyan-gradient text-black hover:opacity-90 border-0 shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:-translate-y-0.5 transition-transform uppercase tracking-wider">
-                    {product === 'pension' ? 'Start Pension' : 'Open Deposit'}
+                  <Button 
+                    onClick={() =>
+                      openAccount({
+                        planName: `SIA ${product.toUpperCase()} Deposit (${rate.toFixed(2)}% p.a.)`,
+                        depositAmount: amount,
+                        tenureMonths: tenure,
+                        interestRate: `${rate.toFixed(2)}% p.a.`
+                      })
+                    }
+                    className="w-full mt-4 h-12 text-sm font-black bg-cyan-gradient text-black hover:opacity-90 border-0 shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:-translate-y-0.5 transition-transform uppercase tracking-wider cursor-pointer"
+                  >
+                    {product === 'pension' ? 'Start Pension →' : 'Open Deposit →'}
                   </Button>
                 </div>
               </div>

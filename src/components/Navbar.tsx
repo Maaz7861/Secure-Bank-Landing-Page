@@ -3,12 +3,17 @@
 import * as React from "react"
 import { Moon, Sun, Menu, ChevronDown, Globe } from "lucide-react"
 import { useTheme } from "@/components/ThemeProvider"
+import { useLanguage } from "@/context/LanguageContext"
+import { useModal } from "@/context/ModalContext"
 import { Button } from "@/components/ui/Button"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
+  const { language, setLanguage, t } = useLanguage()
+  const { openLogin, openAccount } = useModal()
+
   const [mounted, setMounted] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [isScrolled, setIsScrolled] = React.useState(false)
@@ -29,19 +34,28 @@ export function Navbar() {
       <div className="bg-primary text-primary-foreground text-xs hidden md:block border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center h-9">
           <div className="flex items-center gap-6 font-semibold opacity-90">
-            <a href="#" className="hover:opacity-100 transition-colors">Personal</a>
-            <a href="#" className="hover:opacity-100 transition-colors">Business</a>
-            <a href="#" className="hover:opacity-100 transition-colors">Corporate</a>
-            <a href="#" className="hover:opacity-100 transition-colors">NRI</a>
+            <span>Reg. No. 1234656789</span>
+            <span>•</span>
+            <span>An Urban Credit Co-operative Society</span>
           </div>
           <div className="flex items-center gap-6 font-medium opacity-90">
-            <a href="#" className="hover:opacity-100 transition-colors">About Us</a>
-            <a href="#" className="hover:opacity-100 transition-colors">Support</a>
-            <div className="flex items-center gap-1 cursor-pointer hover:opacity-100 transition-colors">
+            <a href="tel:1800123456" className="hover:opacity-100 transition-colors">Helpline: 1800-123-456</a>
+            
+            {/* Language Toggle */}
+            <button
+              onClick={() => setLanguage(language === "en" ? "hi" : "en")}
+              className="flex items-center gap-1 bg-primary-foreground/10 px-2 py-0.5 rounded-full hover:bg-primary-foreground/20 transition-colors cursor-pointer"
+            >
               <Globe className="h-3 w-3" />
-              <span>English</span>
-              <ChevronDown className="h-3 w-3" />
-            </div>
+              <span className="font-bold">{language === "en" ? "हिन्दी" : "English"}</span>
+            </button>
+
+            <button
+              onClick={openLogin}
+              className="hover:opacity-100 transition-colors font-bold underline cursor-pointer"
+            >
+              {t("Member Login", "सदस्य लॉगिन")}
+            </button>
           </div>
         </div>
       </div>
@@ -94,19 +108,19 @@ export function Navbar() {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-8 font-bold text-sm text-foreground">
             <a href="#savings" className="hover:text-primary transition-colors relative group">
-              Accounts
+              {t("Accounts", "खाते")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
             <a href="#deposits" className="hover:text-primary transition-colors relative group">
-              Deposits
+              {t("Deposits", "डिपाजिट")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
             <a href="#pension" className="hover:text-primary transition-colors relative group">
-              Investments
+              {t("Investments", "पेंशन योजना")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
             <a href="#digital" className="hover:text-primary transition-colors relative group">
-              Digital Banking
+              {t("Digital Banking", "डिजिटल बैंकिंग")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
           </nav>
@@ -124,11 +138,17 @@ export function Navbar() {
             </button>
 
             <div className="hidden sm:flex items-center gap-3 border-l border-border pl-4 ml-1">
-              <Button className="h-10 px-4 font-bold hidden md:flex bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 border-0">
-                Open Digital A/C
+              <Button 
+                onClick={() => openAccount()}
+                className="h-10 px-4 font-bold hidden md:flex bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 border-0 cursor-pointer"
+              >
+                {t("Open Digital A/C", "डिजिटल खाता खोलें")}
               </Button>
-              <Button className="h-10 px-6 font-bold bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 gap-2 border-0">
-                Login <ChevronDown className="h-4 w-4" />
+              <Button 
+                onClick={openLogin}
+                className="h-10 px-6 font-bold bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 gap-2 border-0 cursor-pointer"
+              >
+                {t("Login", "लॉगिन")} <ChevronDown className="h-4 w-4" />
               </Button>
             </div>
 
@@ -152,14 +172,30 @@ export function Navbar() {
             className="lg:hidden bg-card border-b border-border overflow-hidden"
           >
             <div className="flex flex-col p-4 gap-4 font-bold text-foreground">
-              <a href="#savings" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Accounts</a>
-              <a href="#deposits" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Deposits</a>
-              <a href="#pension" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Investments</a>
-              <a href="#digital" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>Digital Banking</a>
+              <a href="#savings" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Accounts", "खाते")}</a>
+              <a href="#deposits" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Deposits", "डिपाजिट")}</a>
+              <a href="#pension" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Investments", "निवेश / पेंशन")}</a>
+              <a href="#digital" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Digital Banking", "डिजिटल बैंकिंग")}</a>
               
               <div className="grid grid-cols-2 gap-3 mt-2">
-                <Button className="w-full bg-cyan-gradient text-black border-0">Open A/C</Button>
-                <Button className="w-full bg-cyan-gradient text-black border-0">Login</Button>
+                <Button 
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    openAccount()
+                  }} 
+                  className="w-full bg-cyan-gradient text-black border-0 cursor-pointer"
+                >
+                  {t("Open A/C", "खाता खोलें")}
+                </Button>
+                <Button 
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    openLogin()
+                  }} 
+                  className="w-full bg-cyan-gradient text-black border-0 cursor-pointer"
+                >
+                  {t("Login", "लॉगिन")}
+                </Button>
               </div>
             </div>
           </motion.div>
