@@ -40,7 +40,7 @@ export function Hero() {
                 <span className="text-gold-gradient">Your society.</span>
               </h1>
               <p className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed font-medium">
-                Deposits, loans, and digital banking for our members at premium rates set by the society. Experience trust and prosperity together.
+                Deposits, loans, and digital services for our members at premium rates set by the society. Experience trust and prosperity together.
               </p>
             </div>
             
@@ -133,7 +133,7 @@ export function Hero() {
                             <Fingerprint className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm font-bold text-foreground">Biometric Login</p>
+                            <p className="text-sm font-bold text-foreground">Biometric Security</p>
                             <p className="text-xs text-muted-foreground">Secure access with your fingerprint</p>
                           </div>
                         </motion.div>

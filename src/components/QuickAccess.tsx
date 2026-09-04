@@ -4,7 +4,7 @@ export function QuickAccess() {
   const quickLinks = [
     { icon: Landmark, label: "Savings A/c" },
     { icon: PiggyBank, label: "Fixed Deposit" },
-    { icon: Smartphone, label: "Digital Banking" },
+    { icon: Smartphone, label: "Digital Services" },
     { icon: CreditCard, label: "Pay Bills" },
     { icon: LineChart, label: "Investments" },
     { icon: ArrowRight, label: "More Services" },

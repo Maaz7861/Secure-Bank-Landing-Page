@@ -20,9 +20,9 @@ export function DigitalBanking() {
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0F172A] dark:text-white">Banking anytime, anywhere</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#0F172A] dark:text-white">Digital services anytime, anywhere</h2>
           <p className="text-muted-foreground text-lg">
-            Experience seamless, paperless, and secure banking wherever you go. Over 250+ services available on the SIA Mobile App.
+            Experience seamless, paperless, and secure digital services wherever you go. Over 250+ services available on the SIA Mobile App.
           </p>
         </div>
 

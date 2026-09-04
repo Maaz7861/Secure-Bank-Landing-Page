@@ -39,7 +39,7 @@ export function Navbar() {
             <span>An Urban Credit Co-operative Society</span>
           </div>
           <div className="flex items-center gap-6 font-medium opacity-90">
-            <a href="tel:1800123456" className="hover:opacity-100 transition-colors">Helpline: 1800-123-456</a>
+            <a href="tel:+919405426350" className="hover:opacity-100 transition-colors">Helpline: +91 94054 26350</a>
             
             {/* Language Toggle */}
             <button
@@ -50,12 +50,12 @@ export function Navbar() {
               <span className="font-bold">{language === "en" ? "हिन्दी" : "English"}</span>
             </button>
 
-            <button
-              onClick={openLogin}
+            <a
+              href="#footer"
               className="hover:opacity-100 transition-colors font-bold underline cursor-pointer"
             >
-              {t("Member Login", "सदस्य लॉगिन")}
-            </button>
+              {t("Contact Us", "संपर्क करें")}
+            </a>
           </div>
         </div>
       </div>
@@ -120,12 +120,12 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
             <a href="#digital" className="hover:text-primary transition-colors relative group">
-              {t("Digital Banking", "डिजिटल बैंकिंग")}
+              {t("Digital Services", "डिजिटल सेवाएं")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
           </nav>
 
-          {/* Action Area (Toggle, Login) */}
+          {/* Action Area (Toggle, Contact Us) */}
           <div className="flex items-center gap-3 md:gap-4">
 
             {/* Theme Toggle — mounted safely without layout shifts */}
@@ -144,12 +144,12 @@ export function Navbar() {
               >
                 {t("Open Digital A/C", "डिजिटल खाता खोलें")}
               </Button>
-              <Button 
-                onClick={openLogin}
-                className="h-10 px-6 font-bold bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 gap-2 border-0 cursor-pointer"
+              <a 
+                href="#footer"
+                className="h-10 px-6 font-bold bg-cyan-gradient text-black hover:opacity-90 shadow-md shadow-primary/20 rounded-xl flex items-center justify-center border-0 cursor-pointer text-sm"
               >
-                {t("Login", "लॉगिन")} <ChevronDown className="h-4 w-4" />
-              </Button>
+                {t("Contact Us", "संपर्क करें")}
+              </a>
             </div>
 
             <button 
@@ -175,7 +175,7 @@ export function Navbar() {
               <a href="#savings" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Accounts", "खाते")}</a>
               <a href="#deposits" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Deposits", "डिपाजिट")}</a>
               <a href="#pension" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Investments", "निवेश / पेंशन")}</a>
-              <a href="#digital" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Digital Banking", "डिजिटल बैंकिंग")}</a>
+              <a href="#digital" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Digital Services", "डिजिटल सेवाएं")}</a>
               
               <div className="grid grid-cols-2 gap-3 mt-2">
                 <Button 
@@ -187,15 +187,13 @@ export function Navbar() {
                 >
                   {t("Open A/C", "खाता खोलें")}
                 </Button>
-                <Button 
-                  onClick={() => {
-                    setIsMobileMenuOpen(false)
-                    openLogin()
-                  }} 
-                  className="w-full bg-cyan-gradient text-black border-0 cursor-pointer"
+                <a 
+                  href="#footer"
+                  onClick={() => setIsMobileMenuOpen(false)} 
+                  className="w-full bg-cyan-gradient text-black font-bold py-2 rounded-xl text-center flex items-center justify-center border-0 cursor-pointer text-sm"
                 >
-                  {t("Login", "लॉगिन")}
-                </Button>
+                  {t("Contact Us", "संपर्क करें")}
+                </a>
               </div>
             </div>
           </motion.div>

@@ -8,7 +8,7 @@ export function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="bg-secondary/50 border-t py-12 md:py-16">
+    <footer className="bg-secondary/50 border-t py-12 md:py-16" id="footer">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
@@ -19,12 +19,12 @@ export function Footer() {
             <p className="text-xs text-muted-foreground">
               Reg. No: RSR/CR/2026/1061 • An Urban Credit Co-operative Society
             </p>
-            <button
-              onClick={openLogin}
-              className="text-xs font-bold text-primary hover:underline cursor-pointer"
+            <a
+              href="#footer"
+              className="text-xs font-bold text-primary hover:underline cursor-pointer inline-block"
             >
-              → {t("Member Portal Login", "सदस्य पोर्टल लॉगिन")}
-            </button>
+              → {t("Contact Us", "संपर्क करें")}
+            </a>
           </div>
 
           <div>
@@ -71,8 +71,8 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-sm mb-4 text-foreground">{t("Support & Help", "सहायता एवं सहायता")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground font-medium">
-              <li><a href="tel:1800123456" className="hover:text-primary transition-colors">Helpline: 1800-123-456</a></li>
-              <li><a href="mailto:support@siabank.org" className="hover:text-primary transition-colors">support@siabank.org</a></li>
+              <li><a href="tel:+919405426350" className="hover:text-primary transition-colors">Helpline: +91 94054 26350</a></li>
+              <li><a href="mailto:siasecureunited@gmail.com" className="hover:text-primary transition-colors">siasecureunited@gmail.com</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Grievance Redressal Officer</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">KYC Downloads & Forms</a></li>
             </ul>

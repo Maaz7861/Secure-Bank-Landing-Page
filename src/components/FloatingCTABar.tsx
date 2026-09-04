@@ -25,7 +25,7 @@ export function FloatingCTABar() {
       {/* Floating Action Button (Bottom Right Desktop + Mobile) */}
       <div className="fixed bottom-20 md:bottom-8 right-5 z-40 flex flex-col gap-3">
         <a
-          href="mailto:support@siabank.org?subject=Inquiry%20from%20SIA%20Website"
+          href="mailto:siasecureunited@gmail.com?subject=Inquiry%20from%20SIA%20Website"
           className="bg-primary text-primary-foreground p-3.5 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center border-2 border-white/20 group"
           title="Email SIA Support"
         >
@@ -40,7 +40,7 @@ export function FloatingCTABar() {
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-t border-border p-3 md:hidden shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
         <div className="grid grid-cols-2 gap-3">
           <a
-            href="mailto:support@siabank.org?subject=Inquiry%20from%20SIA%20Website"
+            href="mailto:siasecureunited@gmail.com?subject=Inquiry%20from%20SIA%20Website"
             className="w-full py-2.5 bg-secondary text-foreground text-xs font-bold rounded-xl flex items-center justify-center gap-2 border border-border"
           >
             <Mail className="h-4 w-4 text-primary" />

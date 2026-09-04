@@ -9,7 +9,7 @@ export function BranchLocator() {
   const [searched, setSearched] = useState(false)
 
   const branches = [
-    { id: 1, name: "Main Head Office Branch", address: "Gandhi Ward, Near Honda Showroom, Desaiganj Wadsa - 441207", phone: "+91 98765 43210", hours: "10:00 AM - 5:00 PM" },
+    { id: 1, name: "Main Head Office Branch", address: "Gandhi Ward, Near Honda Showroom, Desaiganj Wadsa - 441207", phone: "+91 94054 26350", hours: "10:00 AM - 5:00 PM" },
     { id: 2, name: "Vyapar Market Branch", address: "45, Commercial Market Complex, Ward 4 - 400012", phone: "+91 98765 43211", hours: "10:00 AM - 5:00 PM" },
     { id: 3, name: "Samriddhi Hub Branch", address: "88, Station Road, Near Co-op Society Bldg - 400025", phone: "+91 98765 43212", hours: "10:00 AM - 5:00 PM" },
     { id: 4, name: "Rural & Krishi Branch", address: "12, APMC Market Yard, Highway Junction - 400050", phone: "+91 98765 43213", hours: "09:30 AM - 4:30 PM" }

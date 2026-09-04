@@ -112,7 +112,7 @@ export function OpenAccountModal() {
             {step === 1 && (
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
                 <h4 className="text-sm font-bold text-foreground">
-                  {t("Select Your Banking or Deposit Product:", "अपनी बैंकिंग या डिपाजिट योजना चुनें:")}
+                  {t("Select Your Member Service or Deposit Product:", "अपनी सेवा या डिपाजिट योजना चुनें:")}
                 </h4>
                 <div className="space-y-2 text-xs">
                   {[

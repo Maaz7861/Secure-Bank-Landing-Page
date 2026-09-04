@@ -18,7 +18,7 @@ export function FinalCTA() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center max-w-3xl">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
           {t("Ready to experience ", "क्या आप तैयार हैं ")}
-          <span className="text-gold-gradient">{t("Society Banking?", "सोसाइटी बैंकिंग का अनुभव लेने के लिए?")}</span>
+          <span className="text-gold-gradient">{t("Society Services?", "सोसाइटी सेवाओं का अनुभव लेने के लिए?")}</span>
         </h2>
         <p className="text-lg text-white/80 font-medium mb-10">
           {t(
@@ -35,11 +35,11 @@ export function FinalCTA() {
             {t("Open Account Now", "अभी खाता खोलें")} <ArrowRight className="h-5 w-5" />
           </Button>
           <a
-            href="tel:1800123456"
+            href="tel:+919405426350"
             className="w-full sm:w-auto bg-transparent border-2 border-white/50 text-white hover:bg-white/10 h-14 px-10 font-bold text-lg rounded-xl flex items-center justify-center gap-2"
           >
             <Phone className="h-5 w-5" />
-            {t("Helpline: 1800-123-456", "हेल्पलाइन: 1800-123-456")}
+            {t("Helpline: +91 94054 26350", "हेल्पलाइन: +91 94054 26350")}
           </a>
         </div>
       </div>

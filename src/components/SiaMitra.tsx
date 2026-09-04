@@ -44,12 +44,11 @@ export function SiaMitra() {
             </div>
             
             <div className="w-full md:w-auto shrink-0">
-              <Button 
-                onClick={openLogin}
-                className="w-full md:w-auto h-14 px-8 bg-cyan-gradient text-black hover:opacity-90 font-bold text-lg shadow-[0_10px_20px_rgba(16,185,129,0.2)] gap-2 border-0 cursor-pointer"
+              <div 
+                className="w-full md:w-auto h-14 px-8 bg-cyan-gradient text-black font-extrabold text-base rounded-2xl flex items-center justify-center shadow-[0_10px_25px_rgba(16,185,129,0.25)] select-none pointer-events-none"
               >
-                {t("Join as Mitra →", "एसआईए मित्र बनें →")} <ArrowRight className="h-5 w-5" />
-              </Button>
+                {t("Coming Soon", "जल्द ही आ रहा है")}
+              </div>
             </div>
           </div>
         </motion.div>
