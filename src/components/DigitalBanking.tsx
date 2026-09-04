@@ -44,7 +44,7 @@ export function DigitalBanking() {
              <div className="absolute bottom-10 left-0 w-full text-center text-white px-6 z-10">
                 <ShieldCheck className="h-10 w-10 mx-auto mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
                 <h3 className="text-3xl font-black italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">open</h3>
-                <p className="text-[10px] font-bold tracking-widest uppercase mt-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SIA Bank App</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase mt-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SIA Mobile App</p>
              </div>
           </motion.div>
 

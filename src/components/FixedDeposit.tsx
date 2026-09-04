@@ -24,7 +24,7 @@ export function FixedDeposit() {
     },
     {
       id: "slab2",
-      name: "₹ 2L – ₹ 14L",
+      name: "₹ 2L – ₹ 14.99L",
       rates: [
         { tenure: "13 Months", rate: "14.50%", return: "₹ 29,000", lock: "7 Months", preRate: "9%", penalty: "5%" },
         { tenure: "25 Months", rate: "16.50%", return: "₹ 33,000", lock: "13 Months", preRate: "10%", penalty: "7%" },

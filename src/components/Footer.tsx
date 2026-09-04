@@ -17,7 +17,7 @@ export function Footer() {
               SECURE UNITED URBAN CREDIT CO-OPERATIVE SOCIETY LTD.
             </p>
             <p className="text-xs text-muted-foreground">
-              Reg. No: 1234656789 • An Urban Credit Co-operative Society
+              Reg. No: RSR/CR/2026/1061 • An Urban Credit Co-operative Society
             </p>
             <button
               onClick={openLogin}
@@ -84,7 +84,7 @@ export function Footer() {
             * Rates are subject to change without prior notice as per society guidelines.
           </p>
           <p className="leading-relaxed">
-            Interest rates, payout periods, premature withdrawal terms and all other conditions are governed by the society&apos;s approved deposit scheme and applicable banking/co-operative regulations. Premature withdrawal penalties attract 18% GST.
+            Interest rates, payout periods, premature withdrawal terms and all other conditions are governed by the society&apos;s approved deposit scheme and applicable co-operative regulations. Premature withdrawal penalties attract 18% GST.
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-6 gap-4 pt-4 border-t border-border/30">
             <p>© 2026 SECURE UNITED Urban Credit Co-operative Society Ltd. All rights reserved.</p>

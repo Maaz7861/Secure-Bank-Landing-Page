@@ -14,7 +14,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "SIA - Secure United Urban Credit Co-operative Society Ltd.",
-  description: "Secure United Urban Credit Co-operative Society Ltd. - Banking & Deposit Schemes.",
+  description: "Secure United Urban Credit Co-operative Society Ltd. - Member Services & Deposit Schemes.",
   icons: {
     icon: "/logo.png",
   },

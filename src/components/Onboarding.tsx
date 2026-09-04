@@ -5,7 +5,7 @@ export function Onboarding() {
   const steps = [
     { num: "01", icon: FileText, title: "Choose your plan", desc: "Select from our Savings, Current, or Deposit products tailored for you." },
     { num: "02", icon: Fingerprint, title: "Submit KYC", desc: "Provide basic documents like Aadhaar, PAN, and address proof online." },
-    { num: "03", icon: Wallet, title: "Fund account", desc: "Transfer from any existing bank account or deposit cash at our branch." },
+    { num: "03", icon: Wallet, title: "Fund account", desc: "Transfer from any existing savings account or deposit cash at our branch." },
     { num: "04", icon: Rocket, title: "Start earning", desc: "Instantly activate your digital banking, debit card, and start earning interest." },
   ]
 

@@ -44,11 +44,11 @@ export function RecurringDeposit() {
                     <CalendarRange className="h-10 w-10 text-primary mb-6" />
                     <h3 className="text-2xl font-bold mb-3">Monthly Savings</h3>
                     <p className="text-muted-foreground mb-6">
-                      Ideal for salaried individuals. Commit a fixed amount every month and earn up to 13% p.a. interest, compounding quarterly.
+                      Ideal for salaried individuals. Commit a fixed amount every month and earn up to 16% p.a. interest, compounding quarterly.
                     </p>
                     <ul className="space-y-3 mb-8 text-sm font-medium">
                       <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Start with just ₹ 500/month</li>
-                      <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Flexible tenures (12 to 60 months)</li>
+                      <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Flexible tenures (12 to 84 months)</li>
                       <li className="flex items-center gap-2 text-foreground"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Auto-debit from SIA Savings Account</li>
                     </ul>
                     <Button 
@@ -64,19 +64,19 @@ export function RecurringDeposit() {
                     
                     <div className="space-y-4">
                       <div className="flex justify-between items-center p-4 bg-background border border-border rounded-lg">
-                        <span className="font-semibold text-muted-foreground">1 Year (9%)</span>
-                        <span className="font-black text-lg text-primary">₹ 62,980</span>
+                        <span className="font-semibold text-muted-foreground">1 Year (10%)</span>
+                        <span className="font-black text-lg text-primary">₹ 63,250</span>
                       </div>
                       <div className="flex justify-between items-center p-4 bg-background border border-border rounded-lg">
-                        <span className="font-semibold text-muted-foreground">3 Years (11%)</span>
-                        <span className="font-black text-lg text-primary">₹ 2,13,850</span>
+                        <span className="font-semibold text-muted-foreground">3 Years (12%)</span>
+                        <span className="font-black text-lg text-primary">₹ 2,13,300</span>
                       </div>
                       <div className="flex justify-between items-center p-4 bg-background border-accent border-2 rounded-lg relative shadow-sm">
                         <div className="flex flex-col">
                           <span className="bg-accent text-[#0B1120] text-[10px] w-max font-black uppercase px-2 py-0.5 rounded mb-1">Highest Yield</span>
-                          <span className="font-bold text-foreground">5 Years (13%)</span>
+                          <span className="font-bold text-foreground">5 Years (14%)</span>
                         </div>
-                        <span className="font-black text-xl text-accent">₹ 4,14,500</span>
+                        <span className="font-black text-xl text-accent">₹ 4,06,750</span>
                       </div>
                     </div>
                   </div>

@@ -35,14 +35,37 @@ export function Calculator() {
   const maxTenure = 84
   const minTenure = 12
 
-  // Get dynamic rate based on amount
+  // Get dynamic rate based on PDF slabs and tenure
   let rate = 15.00
   if (product === "fd" || product === "pension") {
-    if (amount >= 1500000) rate = 22.00
-    if (amount >= 5000000) rate = 25.00
-  } else {
-    if (tenure >= 36) rate = 16.50
-    else rate = 14.50
+    if (amount < 200000) {
+      if (tenure <= 13) rate = 13.00
+      else if (tenure <= 25) rate = 14.00
+      else if (tenure <= 37) rate = 15.00
+      else rate = 16.00
+    } else if (amount < 1500000) {
+      if (tenure <= 13) rate = 14.50
+      else if (tenure <= 25) rate = 16.50
+      else if (tenure <= 37) rate = 18.50
+      else rate = 20.50
+    } else {
+      if (tenure <= 13) rate = 17.50
+      else if (tenure <= 25) rate = 20.00
+      else if (tenure <= 37) rate = 22.00
+      else rate = 25.00
+    }
+  } else if (product === "monthly") {
+    if (tenure <= 12) rate = 10.00
+    else if (tenure <= 24) rate = 11.00
+    else if (tenure <= 36) rate = 12.00
+    else if (tenure <= 48) rate = 13.00
+    else if (tenure <= 60) rate = 14.00
+    else if (tenure <= 72) rate = 15.00
+    else rate = 16.00
+  } else if (product === "daily") {
+    if (tenure <= 12) rate = 3.25
+    else if (tenure <= 36) rate = 4.25
+    else rate = 5.25
   }
 
   let investedAmount = amount

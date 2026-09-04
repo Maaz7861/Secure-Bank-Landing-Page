@@ -34,7 +34,7 @@ export function Navbar() {
       <div className="bg-primary text-primary-foreground text-xs hidden md:block border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center h-9">
           <div className="flex items-center gap-6 font-semibold opacity-90">
-            <span>Reg. No. 1234656789</span>
+            <span>Reg. No. RSR/CR/2026/1061</span>
             <span>•</span>
             <span>An Urban Credit Co-operative Society</span>
           </div>

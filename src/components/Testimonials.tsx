@@ -13,7 +13,7 @@ export function Testimonials() {
     {
       name: "Anjali Sharma",
       role: "Salaried Professional",
-      quote: "I opened the Samriddhi FD online in 5 minutes. Getting 25% returns over 49 months is incredible compared to other banks."
+      quote: "I opened the Samriddhi FD online in 5 minutes. Getting 25% returns over 49 months is incredible compared to traditional options."
     },
     {
       name: "Suresh Gupta",

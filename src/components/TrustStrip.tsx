@@ -27,15 +27,15 @@ export function TrustStrip() {
               Committed to our responsibility towards the society.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-10">
               {[
-                { val: '2.05M+', label: 'Households Across India' },
-                { val: '100Cr+', label: 'National Cancer Grid (NCG)' },
-                { val: '3.27M+', label: 'Trees Planted' },
+                { val: 'Registered', label: 'Co-operative Society' },
+                { val: '100%', label: 'Regulated & Secured' },
+                { val: '25.00%', label: 'Max FD Interest Rate' },
               ].map((stat, i) => (
-                <div key={i} className="rounded-xl p-6 text-center transition-all hover:bg-white/10" style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.04)' }}>
-                  <p className="text-2xl md:text-3xl font-black mb-2" style={{ color: 'white' }}>{stat.val}</p>
-                  <p className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.55)' }}>{stat.label}</p>
+                <div key={i} className="rounded-xl p-4 sm:p-5 text-center transition-all hover:bg-white/10 flex flex-col justify-center items-center" style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.04)' }}>
+                  <p className="text-base sm:text-lg lg:text-xl font-black mb-1.5 tracking-tight text-white" style={{ color: 'white' }}>{stat.val}</p>
+                  <p className="text-[11px] sm:text-xs font-medium leading-tight" style={{ color: 'rgba(255,255,255,0.55)' }}>{stat.label}</p>
                 </div>
               ))}
             </div>

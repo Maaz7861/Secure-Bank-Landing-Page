@@ -15,7 +15,7 @@ export function SavingsAccount() {
       name: "SIA Secure Basic",
       target: "Farmers, Students",
       minBalance: "₹ 500",
-      rate: "2.50% p.a.",
+      rate: "2.00% p.a.",
       features: ["Single, Joint, Minor", "Passbook included", "Withdrawal slip only"],
       popular: false
     },
@@ -23,7 +23,7 @@ export function SavingsAccount() {
       name: "SIA Secure Smart",
       target: "Salaried, Middle-class",
       minBalance: "₹ 5,000",
-      rate: "4.00% p.a.",
+      rate: "5.50% p.a.",
       features: ["Sweep to FD on request", "Premium Passbook", "Free SMS Alerts"],
       popular: true
     },
@@ -31,7 +31,7 @@ export function SavingsAccount() {
       name: "SIA Secure Elite",
       target: "HNIs, Core Investors",
       minBalance: "₹ 25,000",
-      rate: "7.00% p.a.",
+      rate: "10.00% p.a.",
       features: ["Auto-sweep to FD", "VIP Cover Passbook", "Dedicated Support"],
       popular: false
     }

@@ -62,10 +62,10 @@ export function Hero() {
                     Borrow Smart
                   </button>
                   <button 
-                    onClick={() => setActiveTab("bank")}
-                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'bank' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                    onClick={() => setActiveTab("transact")}
+                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'transact' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
                   >
-                    Bank Safe
+                    Transact Safe
                   </button>
                 </div>
                 
@@ -101,8 +101,8 @@ export function Hero() {
                             <Home className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm font-bold text-foreground">Home Loans</p>
-                            <p className="text-xs text-muted-foreground">Lowest interest rates starting at 8.5%</p>
+                            <p className="text-sm font-bold text-foreground">Home & Property Loans</p>
+                            <p className="text-xs text-muted-foreground">Competitive interest rates starting at 15% p.a.</p>
                           </div>
                         </motion.div>
                         <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
@@ -110,15 +110,15 @@ export function Hero() {
                             <CreditCard className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm font-bold text-foreground">Personal Loans</p>
-                            <p className="text-xs text-muted-foreground">Instant approval up to ₹ 5 Lakhs</p>
+                            <p className="text-sm font-bold text-foreground">Personal & Business Loans</p>
+                            <p className="text-xs text-muted-foreground">Instant approval up to ₹ 25 Lakhs</p>
                           </div>
                         </motion.div>
                       </motion.div>
                     )}
 
-                    {activeTab === 'bank' && (
-                      <motion.div key="bank" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.2 }} className="space-y-3">
+                    {activeTab === 'transact' && (
+                      <motion.div key="transact" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.2 }} className="space-y-3">
                         <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 bg-background/80 p-3 rounded-xl border border-border hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group">
                           <div className="bg-primary/10 p-2.5 rounded-lg group-hover:bg-accent/20 transition-colors">
                             <Lock className="h-5 w-5 text-primary group-hover:text-accent transition-colors" />
@@ -171,12 +171,12 @@ export function Hero() {
                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
                className="absolute bottom-10 left-10 z-30 glass-card p-5 rounded-2xl border-accent/20 flex items-center gap-4 w-72"
              >
-                <div className="bg-premium-gradient p-3.5 rounded-full text-black shadow-lg">
-                  <ShieldCheck className="h-6 w-6" />
-                </div>
+                 <div className="bg-primary/10 dark:bg-accent/20 p-3.5 rounded-full text-primary dark:text-accent shadow-md border border-primary/20 dark:border-accent/30">
+                   <ShieldCheck className="h-6 w-6" />
+                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground">Registered Society</p>
-                  <p className="text-xs text-muted-foreground font-medium">Reg No. 1234656789</p>
+                  <p className="text-xs text-muted-foreground font-medium">Reg No. RSR/CR/2026/1061</p>
                 </div>
              </motion.div>
           </motion.div>

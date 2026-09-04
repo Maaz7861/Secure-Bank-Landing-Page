@@ -6,7 +6,7 @@ export function FAQ() {
   const faqs = [
     {
       q: "Is my deposit safe? What protects it?",
-      a: "As an Urban Credit Co-operative Society, your deposits are securely managed and heavily regulated by co-operative banking frameworks. We maintain high liquidity reserves and strict capital adequacy to ensure your funds are completely secure."
+      a: "As an Urban Credit Co-operative Society, your deposits are securely managed and heavily regulated by co-operative society frameworks. We maintain high liquidity reserves and strict capital adequacy to ensure your funds are completely secure."
     },
     {
       q: "Can I withdraw my FD before maturity? What does it cost?",
