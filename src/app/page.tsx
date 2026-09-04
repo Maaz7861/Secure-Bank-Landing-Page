@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         <Hero />
         <TrustStrip />
         <QuickAccess />
@@ -37,7 +37,7 @@ export default function Home() {
         <WhySIA />
         <DigitalBanking />
         <Onboarding />
-        <div className="pt-10 pb-20">
+        <div className="pt-10 pb-20 overflow-x-hidden">
           <SiaMitra />
         </div>
         <Testimonials />

@@ -65,7 +65,7 @@ export function OpenAccountModal() {
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden z-10 p-6 md:p-8 max-h-[90vh] overflow-y-auto"
+          className="relative w-full max-w-xl bg-card border border-border rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto"
         >
           {/* Close button */}
           <button

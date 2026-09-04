@@ -53,7 +53,7 @@ export function LoginModal() {
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-md bg-card border border-border rounded-3xl shadow-2xl overflow-hidden z-10 p-6 md:p-8"
+          className="relative w-full max-w-md bg-card border border-border rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 p-4 sm:p-6 md:p-8"
         >
           {/* Close button */}
           <button
@@ -73,7 +73,7 @@ export function LoginModal() {
                 {t("Secure Login", "सुरक्षित लॉगिन")}
               </h3>
               <p className="text-xs text-muted-foreground font-medium">
-                {t("Access your SIA Banking & Deposits Portal", "अपने SIA बैंकिंग एवं डिपाजिट पोर्टल में प्रवेश करें")}
+                {t("Access your SIA Member & Deposits Portal", "अपने SIA सदस्य एवं डिपाजिट पोर्टल में प्रवेश करें")}
               </p>
             </div>
           </div>

@@ -35,7 +35,7 @@ export function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((review, idx) => (
             <Card key={idx} className="bg-card/50 backdrop-blur-sm border-border hover:shadow-lg transition-all group">
-              <CardContent className="p-8 relative">
+              <CardContent className="p-5 sm:p-8 relative">
                 <Quote className="absolute top-6 right-6 h-12 w-12 text-primary/10 group-hover:text-accent/20 transition-colors" />
                 <p className="text-muted-foreground leading-relaxed italic mb-8 relative z-10">&ldquo;{review.quote}&rdquo;</p>
                 

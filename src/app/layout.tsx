@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -11,6 +11,13 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "SIA - Secure United Urban Credit Co-operative Society Ltd.",
@@ -26,13 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} h-full antialiased w-full max-w-full overflow-x-hidden`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                if (localStorage.theme === 'dark') {
                   document.documentElement.classList.add('dark')
                 } else {
                   document.documentElement.classList.remove('dark')
@@ -42,7 +49,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground text-base">
+      <body className="min-h-full w-full max-w-full overflow-x-hidden flex flex-col bg-background text-foreground text-base">
         <LanguageProvider>
           <ModalProvider>
             <ThemeProvider
@@ -51,7 +58,9 @@ export default function RootLayout({
               enableSystem={false}
               disableTransitionOnChange
             >
-              {children}
+              <div className="relative w-full max-w-full overflow-x-hidden flex flex-col flex-1">
+                {children}
+              </div>
               <LoginModal />
               <OpenAccountModal />
             </ThemeProvider>
@@ -61,3 +70,4 @@ export default function RootLayout({
     </html>
   );
 }
+

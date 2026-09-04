@@ -44,13 +44,13 @@ export function Onboarding() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
                {steps.map((step, idx) => (
-                 <div key={idx} className="bg-card border border-border hover:border-primary/50 p-8 rounded-2xl relative z-10 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
-                   <div className="absolute top-0 right-0 p-4 text-7xl font-black text-slate-200 dark:text-white/10 group-hover:text-slate-900 dark:group-hover:text-white/60 transition-colors duration-300 pointer-events-none select-none">{step.num}</div>
-                   <div className="bg-primary/10 dark:bg-primary/15 text-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                      <step.icon className="h-6 w-6" />
+                 <div key={idx} className="bg-card border border-border hover:border-primary/50 p-5 sm:p-8 rounded-2xl relative z-10 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                   <div className="absolute top-0 right-0 p-3 sm:p-4 text-5xl sm:text-7xl font-black text-slate-200 dark:text-white/10 group-hover:text-slate-900 dark:group-hover:text-white/60 transition-colors duration-300 pointer-events-none select-none">{step.num}</div>
+                   <div className="bg-primary/10 dark:bg-primary/15 text-primary w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                      <step.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                    </div>
-                   <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{step.title}</h3>
-                   <p className="text-sm text-muted-foreground leading-relaxed relative z-10">{step.desc}</p>
+                   <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors">{step.title}</h3>
+                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed relative z-10">{step.desc}</p>
                  </div>
                ))}
             </div>

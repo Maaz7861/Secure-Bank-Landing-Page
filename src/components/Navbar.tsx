@@ -8,6 +8,7 @@ import { useModal } from "@/context/ModalContext"
 import { Button } from "@/components/ui/Button"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
@@ -75,10 +76,10 @@ export function Navbar() {
         >
           
           {/* Logo & Brand */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div 
-              className={`relative w-auto flex items-center justify-center transition-all duration-300 ease-in-out ${
-                isScrolled ? 'h-9 md:h-10' : 'h-11 md:h-12'
+              className={`relative w-auto flex items-center justify-center transition-all duration-300 ease-in-out shrink-0 ${
+                isScrolled ? 'h-8 sm:h-9 md:h-10' : 'h-9 sm:h-11 md:h-12'
               }`}
             >
               <Image 
@@ -92,14 +93,14 @@ export function Navbar() {
             </div>
             
             <div
-              className={`flex flex-col justify-center overflow-hidden whitespace-nowrap transition-transform duration-300 ease-in-out origin-left ${
+              className={`flex flex-col justify-center overflow-hidden whitespace-nowrap transition-transform duration-300 ease-in-out origin-left min-w-0 ${
                 isScrolled ? 'scale-90' : 'scale-100'
               }`}
             >
-              <span className="text-[16px] md:text-xl font-black tracking-tight text-gold-gradient leading-none mb-1">
+              <span className="text-[13px] sm:text-base md:text-xl font-black tracking-tight text-gold-gradient leading-none mb-0.5 truncate">
                 SECURE UNITED
               </span>
-              <span className="text-[9px] md:text-[10px] text-muted-foreground font-bold tracking-widest leading-none">
+              <span className="text-[7.5px] sm:text-[9px] md:text-[10px] text-muted-foreground font-bold tracking-widest leading-none truncate">
                 URBAN CREDIT CO-OP
               </span>
             </div>
@@ -176,6 +177,8 @@ export function Navbar() {
               <a href="#deposits" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Deposits", "डिपाजिट")}</a>
               <a href="#pension" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Investments", "निवेश / पेंशन")}</a>
               <a href="#digital" className="py-2 border-b border-border" onClick={() => setIsMobileMenuOpen(false)}>{t("Digital Services", "डिजिटल सेवाएं")}</a>
+              <Link href="/privacy-policy" className="py-2 border-b border-border text-primary flex items-center gap-1" onClick={() => setIsMobileMenuOpen(false)}>🔒 {t("Privacy Policy", "गोपनीयता नीति")}</Link>
+              <Link href="/terms-and-conditions" className="py-2 border-b border-border text-primary flex items-center gap-1" onClick={() => setIsMobileMenuOpen(false)}>📄 {t("Terms & Conditions", "नियम एवं शर्तें")}</Link>
               
               <div className="grid grid-cols-2 gap-3 mt-2">
                 <Button 

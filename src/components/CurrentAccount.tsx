@@ -56,8 +56,8 @@ export function CurrentAccount() {
       <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="bg-card dark:bg-black rounded-3xl p-6 md:p-10 border border-border shadow-2xl">
-          <div className="flex flex-col-reverse lg:flex-row items-center gap-10 mb-12 md:mb-16">
+        <div className="bg-card dark:bg-black rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-border shadow-2xl">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-6 sm:gap-10 mb-8 md:mb-16">
             <div className="lg:w-1/2">
               <div className="flex items-center gap-2 mb-3">
                  <Building2 className="h-5 w-5 text-accent" />

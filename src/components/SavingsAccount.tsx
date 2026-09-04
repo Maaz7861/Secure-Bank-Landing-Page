@@ -43,10 +43,10 @@ export function SavingsAccount() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="bg-card dark:bg-black rounded-3xl p-6 md:p-10 border border-border shadow-2xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">SIA Samriddhi Khata</h2>
-            <p className="text-muted-foreground">
+        <div className="bg-card dark:bg-black rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-border shadow-2xl">
+          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3 sm:mb-4">SIA Samriddhi Khata</h2>
+            <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
               {t(
                 "A savings account designed for everyone. Choose the tier that matches your daily transaction needs and start earning higher returns today.",
                 "सभी के लिए डिज़ाइन किया गया बचत खाता। अपनी दैनिक आवश्यकताओं के अनुसार स्तर चुनें और अधिक लाभ कमाएं।"
@@ -58,7 +58,7 @@ export function SavingsAccount() {
             {tiers.map((tier, idx) => (
               <div key={idx} className={`relative flex flex-col ${tier.popular ? 'md:-translate-y-4' : ''}`}>
                 <Card className={`flex-1 flex flex-col h-full bg-background dark:bg-[#0A0A0A] transition-all hover:shadow-xl ${tier.popular ? 'border-primary ring-1 ring-primary shadow-primary/10' : 'border-border'}`}>
-                  <CardContent className="p-6 md:p-8 flex flex-col h-full relative overflow-hidden">
+                  <CardContent className="p-4 sm:p-6 md:p-8 flex flex-col h-full relative overflow-hidden">
                     {tier.popular && (
                       <div className="absolute top-0 right-0 p-4">
                         <span className="bg-primary/10 text-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">

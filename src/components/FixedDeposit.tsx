@@ -131,12 +131,12 @@ export function FixedDeposit() {
                   ))}
                 </div>
               </Card>
-              <div className="mt-4 flex justify-between items-center text-xs text-muted-foreground">
+              <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-muted-foreground leading-relaxed">
                 <p>* Premature withdrawal is always allowed after the mini lock period.</p>
                 <Button 
                   onClick={() => openAccount({ planName: "SIA Dhan Samriddhi (FD)", planType: "fd" })}
                   variant="link" 
-                  className="h-auto p-0 text-primary hover:underline cursor-pointer font-bold"
+                  className="h-auto p-0 text-primary hover:underline cursor-pointer font-bold shrink-0"
                 >
                   {t("Open FD Now →", "अभी एफडी खोलें →")}
                 </Button>

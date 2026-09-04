@@ -11,10 +11,10 @@ export function Hero() {
   const { openAccount } = useModal()
   const [activeTab, setActiveTab] = React.useState("save")
   return (
-    <section className="relative overflow-hidden bg-background pt-12 md:pt-20 pb-20 border-b border-border/50">
+    <section className="relative overflow-hidden bg-background pt-8 sm:pt-12 md:pt-20 pb-12 sm:pb-20 border-b border-border/50">
       {/* Ultra-Premium Background Mesh Gradients */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-72 sm:w-[800px] h-72 sm:h-[800px] bg-primary/20 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+      <div className="absolute bottom-0 left-0 w-60 sm:w-[600px] h-60 sm:h-[600px] bg-accent/10 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/4" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -24,46 +24,46 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-8"
+            className="lg:col-span-7 space-y-6 sm:space-y-8"
           >
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <motion.span 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="inline-block px-4 py-1.5 rounded-full bg-accent/15 border border-accent/30 text-accent font-semibold tracking-wider text-xs uppercase"
+                className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-accent/15 border border-accent/30 text-accent font-semibold tracking-wider text-[11px] sm:text-xs uppercase max-w-full truncate"
               >
                 भरोसे की जड़ें, समृद्धि की शाखाएँ
               </motion.span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]">
                 Your savings. <br />
                 <span className="text-gold-gradient">Your society.</span>
               </h1>
-              <p className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed font-medium">
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed font-medium">
                 Deposits, loans, and digital services for our members at premium rates set by the society. Experience trust and prosperity together.
               </p>
             </div>
             
             {/* Tabbed Feature Highlight with Premium styling */}
-            <div className="mt-8 relative">
+            <div className="mt-6 sm:mt-8 relative">
               <div className="absolute inset-0 bg-premium-gradient opacity-5 rounded-2xl pointer-events-none" />
-              <div className="glass-card rounded-2xl p-1.5 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-500">
-                <div className="flex bg-background/50 rounded-xl p-1">
+              <div className="glass-card rounded-2xl p-1 sm:p-1.5 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-500">
+                <div className="flex bg-background/50 rounded-xl p-0.5 sm:p-1">
                   <button 
                     onClick={() => setActiveTab("save")}
-                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'save' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                    className={`flex-1 py-2 px-1 text-xs sm:text-sm transition-all rounded-lg ${activeTab === 'save' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
                   >
                     Save & Grow
                   </button>
                   <button 
                     onClick={() => setActiveTab("borrow")}
-                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'borrow' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                    className={`flex-1 py-2 px-1 text-xs sm:text-sm transition-all rounded-lg ${activeTab === 'borrow' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
                   >
                     Borrow Smart
                   </button>
                   <button 
                     onClick={() => setActiveTab("transact")}
-                    className={`flex-1 py-2 text-sm transition-all rounded-lg ${activeTab === 'transact' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
+                    className={`flex-1 py-2 px-1 text-xs sm:text-sm transition-all rounded-lg ${activeTab === 'transact' ? 'bg-card shadow-sm border border-border/50 font-bold text-primary' : 'text-muted-foreground hover:text-foreground font-medium hover:bg-card/50'}`}
                   >
                     Transact Safe
                   </button>

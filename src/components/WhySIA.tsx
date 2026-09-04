@@ -55,12 +55,12 @@ export function WhySIA() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {reasons.map((reason, idx) => (
-            <motion.div variants={item} key={idx} className="bg-card border border-border p-8 rounded-2xl text-center hover:shadow-lg hover:-translate-y-1 transition-all group">
-              <div className="bg-primary/10 w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                <reason.icon className="h-8 w-8 text-primary group-hover:text-accent transition-colors" />
+            <motion.div variants={item} key={idx} className="bg-card border border-border p-5 sm:p-8 rounded-2xl text-center hover:shadow-lg hover:-translate-y-1 transition-all group">
+              <div className="bg-primary/10 w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                <reason.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary group-hover:text-accent transition-colors" />
               </div>
-              <h3 className="font-bold text-lg mb-3 text-foreground">{reason.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{reason.desc}</p>
+              <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3 text-foreground">{reason.title}</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{reason.desc}</p>
             </motion.div>
           ))}
         </motion.div>

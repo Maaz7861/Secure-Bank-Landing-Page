@@ -148,81 +148,81 @@ export function Calculator() {
             <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
               
               {/* Inputs Panel (New UX) */}
-              <div className="lg:col-span-3 p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-border">
-                <div className="space-y-10">
+              <div className="lg:col-span-3 p-4 sm:p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-border">
+                <div className="space-y-6 sm:space-y-10">
                   
                   {/* Amount Input Block */}
                   <div>
-                    <label className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 block">{depositLabel}</label>
+                    <label className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 sm:mb-4 block">{depositLabel}</label>
                     
-                    <div className="bg-background dark:bg-[#111111] rounded-2xl p-3 border border-border shadow-inner flex items-center justify-between mb-4">
-                      <button onClick={() => setAmount(Math.max(minAmount, amount - stepAmount))} className="p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
-                        <Minus className="h-5 w-5"/>
+                    <div className="bg-background dark:bg-[#111111] rounded-2xl p-2.5 sm:p-3 border border-border shadow-inner flex items-center justify-between mb-3 sm:mb-4">
+                      <button onClick={() => setAmount(Math.max(minAmount, amount - stepAmount))} className="p-2 sm:p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
+                        <Minus className="h-4 w-4 sm:h-5 sm:w-5"/>
                       </button>
                       
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-xl font-medium text-muted-foreground">₹</span>
+                      <div className="flex items-baseline gap-1 min-w-0">
+                        <span className="text-lg sm:text-xl font-medium text-muted-foreground">₹</span>
                         <input 
                           type="text" 
                           value={formatRupee(amount)}
                           onChange={handleAmountChange}
                           onBlur={handleAmountBlur}
-                          className="bg-transparent border-0 text-3xl sm:text-4xl font-bold text-center text-foreground focus:ring-0 w-32 sm:w-48 p-0 outline-none"
+                          className="bg-transparent border-0 text-2xl sm:text-4xl font-bold text-center text-foreground focus:ring-0 w-28 sm:w-48 p-0 outline-none"
                         />
                       </div>
 
-                      <button onClick={() => setAmount(Math.min(maxAmount, amount + stepAmount))} className="p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
-                        <Plus className="h-5 w-5"/>
+                      <button onClick={() => setAmount(Math.min(maxAmount, amount + stepAmount))} className="p-2 sm:p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
+                        <Plus className="h-4 w-4 sm:h-5 sm:w-5"/>
                       </button>
                     </div>
                     
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                       {product === 'daily' || product === 'monthly' ? (
                         <>
-                          <button onClick={() => addAmount(500)} className="whitespace-nowrap px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ ₹500</button>
-                          <button onClick={() => addAmount(1000)} className="whitespace-nowrap px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ ₹1K</button>
-                          <button onClick={() => addAmount(5000)} className="whitespace-nowrap px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ ₹5K</button>
+                          <button onClick={() => addAmount(500)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ ₹500</button>
+                          <button onClick={() => addAmount(1000)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ ₹1K</button>
+                          <button onClick={() => addAmount(5000)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ ₹5K</button>
                         </>
                       ) : (
                         <>
-                          <button onClick={() => addAmount(50000)} className="whitespace-nowrap px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ 50K</button>
-                          <button onClick={() => addAmount(100000)} className="whitespace-nowrap px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ 1L</button>
-                          <button onClick={() => addAmount(500000)} className="whitespace-nowrap px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ 5L</button>
+                          <button onClick={() => addAmount(50000)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ 50K</button>
+                          <button onClick={() => addAmount(100000)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ 1L</button>
+                          <button onClick={() => addAmount(500000)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-semibold text-foreground hover:bg-secondary transition-colors">+ 5L</button>
                         </>
                       )}
-                      <button onClick={() => setAmount(maxAmount)} className="whitespace-nowrap px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-xs font-bold text-primary hover:bg-primary/20 transition-colors">Max</button>
+                      <button onClick={() => setAmount(maxAmount)} className="whitespace-nowrap px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs font-bold text-primary hover:bg-primary/20 transition-colors">Max</button>
                     </div>
                   </div>
 
                   {/* Tenure Input Block */}
                   <div>
-                    <label className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 block">Tenure (Months)</label>
+                    <label className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 sm:mb-4 block">Tenure (Months)</label>
                     
-                    <div className="bg-background dark:bg-[#111111] rounded-2xl p-3 border border-border shadow-inner flex items-center justify-between mb-4">
-                      <button onClick={() => setTenure(Math.max(minTenure, tenure - 1))} className="p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
-                        <Minus className="h-5 w-5"/>
+                    <div className="bg-background dark:bg-[#111111] rounded-2xl p-2.5 sm:p-3 border border-border shadow-inner flex items-center justify-between mb-3 sm:mb-4">
+                      <button onClick={() => setTenure(Math.max(minTenure, tenure - 1))} className="p-2 sm:p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
+                        <Minus className="h-4 w-4 sm:h-5 sm:w-5"/>
                       </button>
                       
-                      <div className="flex items-baseline gap-2">
+                      <div className="flex items-baseline gap-1.5">
                         <input 
                           type="number" 
                           value={tenure}
                           onChange={(e) => setTenure(Math.min(maxTenure, Math.max(minTenure, parseInt(e.target.value) || minTenure)))}
-                          className="bg-transparent border-0 text-3xl sm:text-4xl font-bold text-center text-foreground focus:ring-0 w-20 p-0 outline-none"
+                          className="bg-transparent border-0 text-2xl sm:text-4xl font-bold text-center text-foreground focus:ring-0 w-16 sm:w-20 p-0 outline-none"
                         />
-                        <span className="text-lg font-medium text-muted-foreground">Months</span>
+                        <span className="text-sm sm:text-lg font-medium text-muted-foreground">Months</span>
                       </div>
 
-                      <button onClick={() => setTenure(Math.min(maxTenure, tenure + 1))} className="p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
-                        <Plus className="h-5 w-5"/>
+                      <button onClick={() => setTenure(Math.min(maxTenure, tenure + 1))} className="p-2 sm:p-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-colors">
+                        <Plus className="h-4 w-4 sm:h-5 sm:w-5"/>
                       </button>
                     </div>
                     
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                      <button onClick={() => setTenure(12)} className={`whitespace-nowrap px-4 py-2 rounded-full border text-xs font-semibold transition-colors ${tenure === 12 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>1 Yr</button>
-                      <button onClick={() => setTenure(24)} className={`whitespace-nowrap px-4 py-2 rounded-full border text-xs font-semibold transition-colors ${tenure === 24 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>2 Yrs</button>
-                      <button onClick={() => setTenure(36)} className={`whitespace-nowrap px-4 py-2 rounded-full border text-xs font-semibold transition-colors ${tenure === 36 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>3 Yrs</button>
-                      <button onClick={() => setTenure(60)} className={`whitespace-nowrap px-4 py-2 rounded-full border text-xs font-semibold transition-colors ${tenure === 60 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>5 Yrs</button>
+                      <button onClick={() => setTenure(12)} className={`whitespace-nowrap px-3 py-1.5 rounded-full border text-xs font-semibold transition-colors ${tenure === 12 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>1 Yr</button>
+                      <button onClick={() => setTenure(24)} className={`whitespace-nowrap px-3 py-1.5 rounded-full border text-xs font-semibold transition-colors ${tenure === 24 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>2 Yrs</button>
+                      <button onClick={() => setTenure(36)} className={`whitespace-nowrap px-3 py-1.5 rounded-full border text-xs font-semibold transition-colors ${tenure === 36 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>3 Yrs</button>
+                      <button onClick={() => setTenure(60)} className={`whitespace-nowrap px-3 py-1.5 rounded-full border text-xs font-semibold transition-colors ${tenure === 60 ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/50 border-border text-foreground hover:bg-secondary'}`}>5 Yrs</button>
                     </div>
                   </div>
 
@@ -230,7 +230,7 @@ export function Calculator() {
               </div>
 
               {/* Outputs & Chart Panel (Premium Dark Look) */}
-              <div className="lg:col-span-2 p-6 md:p-10 bg-[#0A0A0A] rounded-2xl md:rounded-r-2xl md:rounded-l-none text-white flex flex-col justify-center relative overflow-hidden shadow-inner border border-border/50">
+              <div className="lg:col-span-2 p-4 sm:p-8 md:p-10 bg-[#0A0A0A] rounded-2xl md:rounded-r-2xl md:rounded-l-none text-white flex flex-col justify-center relative overflow-hidden shadow-inner border border-border/50">
                 
                 <div className="space-y-6 relative z-10 w-full h-full flex flex-col">
                   <div className="flex justify-between items-end border-b border-white/10 pb-4">

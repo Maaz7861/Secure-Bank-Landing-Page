@@ -40,7 +40,7 @@ export function RecurringDeposit() {
             >
               <Card className="border-border bg-card shadow-lg hover:shadow-xl transition-all">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-border bg-primary/5 flex flex-col justify-center">
+                  <div className="p-5 sm:p-8 md:p-12 border-b md:border-b-0 md:border-r border-border bg-primary/5 flex flex-col justify-center">
                     <CalendarRange className="h-10 w-10 text-primary mb-6" />
                     <h3 className="text-2xl font-bold mb-3">Monthly Savings</h3>
                     <p className="text-muted-foreground mb-6">
@@ -53,13 +53,13 @@ export function RecurringDeposit() {
                     </ul>
                     <Button 
                       onClick={() => openAccount({ planName: "SIA Dhanpravah Monthly RD", planType: "rd" })}
-                      className="w-max bg-cyan-gradient text-black font-bold border-0 hover:opacity-90 shadow-md cursor-pointer"
+                      className="w-full sm:w-max bg-cyan-gradient text-black font-bold border-0 hover:opacity-90 shadow-md cursor-pointer"
                     >
                       {t("Start Monthly RD →", "मासिक आरडी शुरू करें →")}
                     </Button>
                   </div>
                   
-                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="p-5 sm:p-8 md:p-12 flex flex-col justify-center">
                     <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-6 text-center">Illustration: ₹ 5,000 / month</h4>
                     
                     <div className="space-y-4">
@@ -92,7 +92,7 @@ export function RecurringDeposit() {
             >
               <Card className="border-border bg-card shadow-lg hover:shadow-xl transition-all">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-border bg-accent/5 flex flex-col justify-center">
+                  <div className="p-5 sm:p-8 md:p-12 border-b md:border-b-0 md:border-r border-border bg-accent/5 flex flex-col justify-center">
                     <Clock className="h-10 w-10 text-accent mb-6" />
                     <h3 className="text-2xl font-bold mb-3">Daily Pigmy Deposit</h3>
                     <p className="text-muted-foreground mb-6">
@@ -105,13 +105,13 @@ export function RecurringDeposit() {
                     </ul>
                     <Button 
                       onClick={() => openAccount({ planName: "SIA Daily Pigmy RD", planType: "rd" })}
-                      className="w-max bg-cyan-gradient text-black hover:opacity-90 font-bold border-0 shadow-md cursor-pointer"
+                      className="w-full sm:w-max bg-cyan-gradient text-black hover:opacity-90 font-bold border-0 shadow-md cursor-pointer"
                     >
                       {t("Request Agent Visit →", "एजेंट विजिट का अनुरोध करें →")}
                     </Button>
                   </div>
                   
-                  <div className="p-8 md:p-12 flex flex-col justify-center text-center">
+                  <div className="p-5 sm:p-8 md:p-12 flex flex-col justify-center text-center">
                     <PiggyBank className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
                     <h4 className="text-lg font-bold mb-2">Watch small drops make an ocean</h4>
                     <p className="text-muted-foreground text-sm mb-6">
